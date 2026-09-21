@@ -1,0 +1,2152 @@
+{
+  "schemaVersion": "0.1.0",
+  "extractedAt": "2026-09-21",
+  "language": "ko",
+  "status": "first_pass_extraction",
+  "method": "영상 5개의 자동 자막, 설명란, 제작자 정정과 일부 세팅 화면을 확인했다. 고유명사를 PoEDB 한국어 페이지와 대조했다. 전체 영상의 모든 프레임이나 모든 아틀라스 할당을 검증한 자료는 아니다.",
+  "namingPolicy": {
+    "canonicalSource": "https://poe2db.tw/kr/",
+    "properNames": "PoEDB 한국어 표기",
+    "optionText": "검색에 필요한 의미를 요약하며 고유명사만 정식 표기로 고정",
+    "ambiguities": [
+      {
+        "name": "베리시움 잔류물",
+        "alsoShownAs": "베리시움 유적",
+        "url": "https://poe2db.tw/kr/Verisium_Remnant",
+        "note": "PoEDB에서 상세 페이지 제목과 일부 본문·연결 문구가 다르다. 상세 페이지 제목으로 통일했다."
+      }
+    ]
+  },
+  "reviewPolicy": {
+    "currentPatchViability": "not_playtested",
+    "unknownValue": null,
+    "basisDefinitions": {
+      "video": "영상 설명에 근거하며 명칭을 PoEDB로 정규화",
+      "effect_matched": "영상에서 설명한 효과를 PoEDB 노드와 대조해 식별",
+      "screen_and_effect": "일부 화면과 효과를 함께 확인",
+      "poedb_prerequisite": "영상의 전체 배분 확인과 별도로 PoEDB 효과에서 보충한 기계적 전제"
+    },
+    "investment": "정확한 현재 비용이 아닌 영상 준비물에 따른 편집 분류",
+    "profit": "제작자가 보고한 사례와 검증된 순이익을 구분하며 모든 순이익 값은 미확인"
+  },
+  "sources": [
+    {
+      "id": "Mi3d9GtgwkI",
+      "creator": "조선펭귄",
+      "titleKo": "아즈메리 혼백 금고 파밍 가이드",
+      "publishedAt": "2026-09-19",
+      "patch": "0.5.5",
+      "patchEvidence": "영상 제목",
+      "language": "ko",
+      "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI"
+    },
+    {
+      "id": "YHYYZI_qGuQ",
+      "creator": "SFAM 스팸",
+      "titleKo": "대탐험 파밍 설명",
+      "publishedAt": "2026-09-14",
+      "patch": null,
+      "patchEvidence": "영상에서 정확한 패치 번호를 확정하지 못함",
+      "language": "ko",
+      "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ"
+    },
+    {
+      "id": "JIVK4A5g7YU",
+      "creator": "디넬",
+      "titleKo": "의식 저투자 파밍",
+      "publishedAt": "2026-07-22",
+      "patch": "0.5",
+      "patchEvidence": "영상 제목",
+      "language": "ko",
+      "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU"
+    },
+    {
+      "id": "rgrR5ty_O9Q",
+      "creator": "EasyBabi",
+      "titleKo": "서판 파밍과 제작·판매",
+      "publishedAt": "2026-09-17",
+      "patch": "0.5.5",
+      "patchEvidence": "설명란",
+      "language": "ko",
+      "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q"
+    },
+    {
+      "id": "EdOOPRJIoQ4",
+      "creator": "Bellumbr",
+      "titleKo": "분열의 오브 파밍",
+      "publishedAt": "2026-09-21",
+      "patch": "0.5.5",
+      "patchEvidence": "영상 제목",
+      "language": "en",
+      "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4"
+    }
+  ],
+  "glossary": {
+    "선택받은 길": {
+      "nameKo": "선택받은 길",
+      "url": "https://poe2db.tw/kr/The_Chosen_Path",
+      "kind": "아틀라스 패시브"
+    },
+    "대군주의 영향력": {
+      "nameKo": "대군주의 영향력",
+      "url": "https://poe2db.tw/kr/Overlords_Influence",
+      "kind": "아틀라스 패시브"
+    },
+    "대군주의 영토": {
+      "nameKo": "대군주의 영토",
+      "url": "https://poe2db.tw/kr/Overlords_Domain",
+      "kind": "아틀라스 패시브"
+    },
+    "손을 흔드는 곡물의 속삭임": {
+      "nameKo": "손을 흔드는 곡물의 속삭임",
+      "url": "https://poe2db.tw/kr/Whispers_of_the_Waving_Grains",
+      "kind": "아틀라스 패시브"
+    },
+    "산 숙련": {
+      "nameKo": "산 숙련",
+      "url": "https://poe2db.tw/kr/Mountain_Mastery",
+      "kind": "아틀라스 패시브"
+    },
+    "에조미어인의 역사": {
+      "nameKo": "에조미어인의 역사",
+      "url": "https://poe2db.tw/kr/History_of_the_Ezomytes",
+      "kind": "아틀라스 패시브"
+    },
+    "산업의 진보": {
+      "nameKo": "산업의 진보",
+      "url": "https://poe2db.tw/kr/Industrial_Improvements",
+      "kind": "아틀라스 패시브"
+    },
+    "바람을 타고": {
+      "nameKo": "바람을 타고",
+      "url": "https://poe2db.tw/kr/On_the_Wind",
+      "kind": "아틀라스 패시브"
+    },
+    "성스러운 진액": {
+      "nameKo": "성스러운 진액",
+      "url": "https://poe2db.tw/kr/Sacred_Sap",
+      "kind": "아틀라스 패시브"
+    },
+    "자격 있는 사냥꾼": {
+      "nameKo": "자격 있는 사냥꾼",
+      "url": "https://poe2db.tw/kr/Worthy_Hunter",
+      "kind": "아틀라스 패시브"
+    },
+    "살아있는 금속": {
+      "nameKo": "살아있는 금속",
+      "url": "https://poe2db.tw/kr/Living_Metal",
+      "kind": "아틀라스 패시브"
+    },
+    "머나먼 거리에서": {
+      "nameKo": "머나먼 거리에서",
+      "url": "https://poe2db.tw/kr/From_Distances_Untold",
+      "kind": "아틀라스 패시브"
+    },
+    "숨겨진 흉터": {
+      "nameKo": "숨겨진 흉터",
+      "url": "https://poe2db.tw/kr/Hidden_Scars",
+      "kind": "아틀라스 패시브"
+    },
+    "나그네의 비애": {
+      "nameKo": "나그네의 비애",
+      "url": "https://poe2db.tw/kr/Travellers_Woe",
+      "kind": "아틀라스 패시브"
+    },
+    "고무된 제물": {
+      "nameKo": "고무된 제물",
+      "url": "https://poe2db.tw/kr/Invigorated_Sacrifices",
+      "kind": "아틀라스 패시브"
+    },
+    "꾸준한 개발": {
+      "nameKo": "꾸준한 개발",
+      "url": "https://poe2db.tw/kr/Steady_Development",
+      "kind": "아틀라스 패시브"
+    },
+    "계산된 투자": {
+      "nameKo": "계산된 투자",
+      "url": "https://poe2db.tw/kr/Calculated_Investment",
+      "kind": "아틀라스 패시브"
+    },
+    "묻고 더블로 가": {
+      "nameKo": "묻고 더블로 가",
+      "url": "https://poe2db.tw/kr/Double_or_Nothing",
+      "kind": "아틀라스 패시브"
+    },
+    "바다 개발": {
+      "nameKo": "바다 개발",
+      "url": "https://poe2db.tw/kr/Cultivate_the_Sea",
+      "kind": "아틀라스 패시브"
+    },
+    "잊힌 고원": {
+      "nameKo": "잊힌 고원",
+      "url": "https://poe2db.tw/kr/Forgotten_Heights",
+      "kind": "아틀라스 패시브"
+    },
+    "보이지 않는 강": {
+      "nameKo": "보이지 않는 강",
+      "url": "https://poe2db.tw/kr/Azmeri_Spirit",
+      "kind": "아틀라스 패시브"
+    },
+    "자도": {
+      "nameKo": "자도",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "도리아니": {
+      "nameKo": "도리아니",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "힐다": {
+      "nameKo": "힐다",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "혼백의 부름": {
+      "nameKo": "혼백의 부름",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "동방의 지식": {
+      "nameKo": "동방의 지식",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "진화 압력": {
+      "nameKo": "진화 압력",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "살점 꿰매기": {
+      "nameKo": "살점 꿰매기",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "뜻밖의 임무": {
+      "nameKo": "뜻밖의 임무",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "예기치 못한 위협": {
+      "nameKo": "예기치 못한 위협",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "부분적인 해독": {
+      "nameKo": "부분적인 해독",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "기나긴 나날": {
+      "nameKo": "기나긴 나날",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "전해지지 않은 역사": {
+      "nameKo": "전해지지 않은 역사",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "고대 명문": {
+      "nameKo": "고대 명문",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "교배철": {
+      "nameKo": "교배철",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "점령한 영역": {
+      "nameKo": "점령한 영역",
+      "url": "https://poe2db.tw/kr/Masters_of_the_Atlas",
+      "kind": "아틀라스의 대가 또는 패시브"
+    },
+    "탐험 서판": {
+      "nameKo": "탐험 서판",
+      "url": "https://poe2db.tw/kr/Tablet",
+      "kind": "서판"
+    },
+    "감독관 서판": {
+      "nameKo": "감독관 서판",
+      "url": "https://poe2db.tw/kr/Tablet",
+      "kind": "서판"
+    },
+    "방사능 노출 서판": {
+      "nameKo": "방사능 노출 서판",
+      "url": "https://poe2db.tw/kr/Tablet",
+      "kind": "서판"
+    },
+    "의식 서판": {
+      "nameKo": "의식 서판",
+      "url": "https://poe2db.tw/kr/Tablet",
+      "kind": "서판"
+    },
+    "환영 서판": {
+      "nameKo": "환영 서판",
+      "url": "https://poe2db.tw/kr/Tablet",
+      "kind": "서판"
+    },
+    "균열 서판": {
+      "nameKo": "균열 서판",
+      "url": "https://poe2db.tw/kr/Tablet",
+      "kind": "서판"
+    },
+    "심연 서판": {
+      "nameKo": "심연 서판",
+      "url": "https://poe2db.tw/kr/Tablet",
+      "kind": "서판"
+    },
+    "사원 서판": {
+      "nameKo": "사원 서판",
+      "url": "https://poe2db.tw/kr/Tablet",
+      "kind": "서판"
+    },
+    "신념의 자유": {
+      "nameKo": "신념의 자유",
+      "url": "https://poe2db.tw/kr/Tablet",
+      "kind": "서판"
+    },
+    "아즈메리 혼백": {
+      "nameKo": "아즈메리 혼백",
+      "url": "https://poe2db.tw/kr/Azmeri_Spirit",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "통과의례": {
+      "nameKo": "통과의례",
+      "url": "https://poe2db.tw/kr/Azmeri_Spirit",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "신성한 꽃": {
+      "nameKo": "신성한 꽃",
+      "url": "https://poe2db.tw/kr/Sacred_Bloom",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "분열의 오브": {
+      "nameKo": "분열의 오브",
+      "url": "https://poe2db.tw/kr/Fracturing_Orb",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "사냥의 징조": {
+      "nameKo": "사냥의 징조",
+      "url": "https://poe2db.tw/kr/Omen_of_the_Hunt",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "이름 없는 자의 의례": {
+      "nameKo": "이름 없는 자의 의례",
+      "url": "https://poe2db.tw/kr/Rite_of_the_Nameless",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "예견된 하사품": {
+      "nameKo": "예견된 하사품",
+      "url": "https://poe2db.tw/kr/Foretold_Bounty",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "예견된 확산": {
+      "nameKo": "예견된 확산",
+      "url": "https://poe2db.tw/kr/Foretold_Proliferation",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "왕의 머리": {
+      "nameKo": "왕의 머리",
+      "url": "https://poe2db.tw/kr/Ritual",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "왕 알현": {
+      "nameKo": "왕 알현",
+      "url": "https://poe2db.tw/kr/Ritual",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "연무 속의 왕": {
+      "nameKo": "연무 속의 왕",
+      "url": "https://poe2db.tw/kr/Ritual",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "베리시움 잔류물": {
+      "nameKo": "베리시움 잔류물",
+      "url": "https://poe2db.tw/kr/Verisium_Remnant",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "풍요 룬": {
+      "nameKo": "풍요 룬",
+      "url": "https://poe2db.tw/kr/Opulent_Rune",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "권능 룬": {
+      "nameKo": "권능 룬",
+      "url": "https://poe2db.tw/kr/Verisium_Remnant",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "액체 베리시움": {
+      "nameKo": "액체 베리시움",
+      "url": "https://poe2db.tw/kr/Expedition",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "탐험 일지": {
+      "nameKo": "탐험 일지",
+      "url": "https://poe2db.tw/kr/Expedition",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "마법사의 피": {
+      "nameKo": "마법사의 피",
+      "url": "https://poe2db.tw/kr/Foretold_Proliferation",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "헤드헌터": {
+      "nameKo": "헤드헌터",
+      "url": "https://poe2db.tw/kr/Foretold_Proliferation",
+      "kind": "아이템 또는 콘텐츠"
+    },
+    "신성한 오브": {
+      "nameKo": "신성한 오브",
+      "url": "https://poe2db.tw/kr/Currency_Exchange",
+      "kind": "화폐"
+    },
+    "진화의 오브": {
+      "nameKo": "진화의 오브",
+      "url": "https://poe2db.tw/kr/Currency_Exchange",
+      "kind": "화폐"
+    },
+    "확장의 오브": {
+      "nameKo": "확장의 오브",
+      "url": "https://poe2db.tw/kr/Currency_Exchange",
+      "kind": "화폐"
+    },
+    "제왕의 오브": {
+      "nameKo": "제왕의 오브",
+      "url": "https://poe2db.tw/kr/Currency_Exchange",
+      "kind": "화폐"
+    },
+    "엑잘티드 오브": {
+      "nameKo": "엑잘티드 오브",
+      "url": "https://poe2db.tw/kr/Currency_Exchange",
+      "kind": "화폐"
+    },
+    "카오스 오브": {
+      "nameKo": "카오스 오브",
+      "url": "https://poe2db.tw/kr/Currency_Exchange",
+      "kind": "화폐"
+    },
+    "바알 오브": {
+      "nameKo": "바알 오브",
+      "url": "https://poe2db.tw/kr/Currency_Exchange",
+      "kind": "화폐"
+    },
+    "연금술의 오브": {
+      "nameKo": "연금술의 오브",
+      "url": "https://poe2db.tw/kr/Currency_Exchange",
+      "kind": "화폐"
+    },
+    "난해한 열쇠": {
+      "nameKo": "난해한 열쇠",
+      "url": "https://poe2db.tw/kr/Currency_Exchange",
+      "kind": "화폐"
+    },
+    "통달한 영토": {
+      "nameKo": "통달한 영토",
+      "url": "https://poe2db.tw/kr/Mastered_Domain",
+      "kind": "고유 서판"
+    },
+    "에조미어 도시": {
+      "nameKo": "에조미어 도시",
+      "url": "https://poe2db.tw/kr/Citadel",
+      "kind": "지역"
+    },
+    "소환의 원": {
+      "nameKo": "소환의 원",
+      "url": "https://poe2db.tw/kr/Summoning_Circle",
+      "kind": "콘텐츠"
+    }
+  },
+  "strategies": [
+    {
+      "id": "azmeri-strongbox",
+      "name": "아즈메리 혼백 금고 파밍",
+      "kind": "map",
+      "sourceVideoId": "Mi3d9GtgwkI",
+      "goals": [
+        "화폐",
+        "통과의례",
+        "고가 고유 아이템"
+      ],
+      "investment": "high",
+      "party": "영상은 1인 플레이 기준으로 설명",
+      "patch": "0.5.5",
+      "summary": "금고에 아즈메리 혼백을 유도하고 난해한 열쇠로 반복 개방하며, 탐험에 묻힌 금고까지 활용한다.",
+      "tablets": {
+        "items": [
+          {
+            "name": "탐험 서판",
+            "count": 3,
+            "options": [
+              {
+                "text": "탐험에 묻힌 금고 2개 등장",
+                "priority": "required",
+                "metric": "buriedStrongboxes",
+                "min": 2,
+                "unit": "개"
+              },
+              {
+                "text": "아즈메리 혼백 등장 확률 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": null
+              }
+            ]
+          },
+          {
+            "name": "감독관 서판",
+            "count": 1,
+            "options": [
+              {
+                "text": "아즈메리 혼백 2개 추가",
+                "priority": "required",
+                "metric": "additionalAzmeriSpirits",
+                "min": 2,
+                "unit": "개"
+              }
+            ]
+          }
+        ],
+        "notes": [
+          "네 번째 서판 사용에는 도시 환경의 산업의 진보 조건을 갖춘다.",
+          "영상은 서판 효과 증가로 묻힌 금고 수를 늘리는 구성을 사용한다. 서판 3개만으로 같은 금고 수가 보장되지는 않는다.",
+          "영상 예시는 서판 효과 54% 증가에서 금고 2개가 3개로 증가하고, 탐험 2회에 총 18개가 등장하는 구성이다."
+        ],
+        "evidence": [
+          {
+            "videoId": "Mi3d9GtgwkI",
+            "startSeconds": 458,
+            "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=458s"
+          }
+        ]
+      },
+      "waystone": {
+        "tier": 15,
+        "affixCount": 8,
+        "corrupted": null,
+        "options": [
+          {
+            "text": "몬스터 희귀도 100% 이상",
+            "priority": "required",
+            "metric": "monsterRarity",
+            "min": 100,
+            "unit": "%"
+          }
+        ],
+        "notes": [
+          "아이템 희귀도와 몬스터 희귀도를 서로 다른 검색 항목으로 취급한다."
+        ],
+        "evidence": [
+          {
+            "videoId": "Mi3d9GtgwkI",
+            "startSeconds": 642,
+            "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=642s"
+          }
+        ]
+      },
+      "map": {
+        "regions": [
+          "에조미어 도시"
+        ],
+        "biomes": [
+          "풀"
+        ],
+        "conditions": [
+          "에조미어인의 역사에서 풀 선택"
+        ],
+        "optional": [
+          "환영 200%는 제작자 선호 세팅",
+          "신성한 꽃을 통한 야생림은 선택 사항"
+        ],
+        "evidence": [
+          {
+            "videoId": "Mi3d9GtgwkI",
+            "startSeconds": 726,
+            "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=726s"
+          },
+          {
+            "videoId": "Mi3d9GtgwkI",
+            "startSeconds": 786,
+            "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=786s"
+          }
+        ]
+      },
+      "atlas": {
+        "nodes": [
+          {
+            "name": "산업의 진보",
+            "choice": null,
+            "basis": "poedb_prerequisite",
+            "poedbUrl": "https://poe2db.tw/kr/Industrial_Improvements"
+          },
+          {
+            "name": "살아있는 금속",
+            "choice": null,
+            "basis": "poedb_prerequisite",
+            "poedbUrl": "https://poe2db.tw/kr/Living_Metal"
+          },
+          {
+            "name": "에조미어인의 역사",
+            "choice": "풀",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/History_of_the_Ezomytes"
+          },
+          {
+            "name": "손을 흔드는 곡물의 속삭임",
+            "choice": null,
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/Whispers_of_the_Waving_Grains"
+          },
+          {
+            "name": "바람을 타고",
+            "choice": "주변에 플레이어가 없을 때 혼백이 형체를 잃지 않음",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/On_the_Wind"
+          },
+          {
+            "name": "성스러운 진액",
+            "choice": "성스러운 혼백에 사로잡히면 다른 무작위 혼백 추가",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/Sacred_Sap"
+          },
+          {
+            "name": "대군주의 영향력",
+            "choice": "아즈메리 혼백",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/Overlords_Influence"
+          },
+          {
+            "name": "선택받은 길",
+            "choice": "아즈메리 혼백",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/The_Chosen_Path"
+          },
+          {
+            "name": "보이지 않는 강",
+            "choice": "야생 혼백; 다른 선택도 가능",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/Azmeri_Spirit"
+          },
+          {
+            "name": "꾸준한 개발",
+            "choice": "폭발물",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/Steady_Development"
+          }
+        ],
+        "fullTreeVerified": false,
+        "evidence": [
+          {
+            "videoId": "Mi3d9GtgwkI",
+            "startSeconds": 1033,
+            "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=1033s"
+          }
+        ]
+      },
+      "masters": {
+        "choices": [
+          {
+            "name": "도리아니",
+            "role": "생존과 재도전 중심",
+            "nodes": []
+          },
+          {
+            "name": "힐다",
+            "role": "고유 몬스터 사망 후 혼백 방출 활용",
+            "nodes": [
+              {
+                "name": "혼백의 부름",
+                "choice": null,
+                "basis": "video",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              }
+            ]
+          }
+        ],
+        "fullSetupVerified": false,
+        "evidence": [
+          {
+            "videoId": "Mi3d9GtgwkI",
+            "startSeconds": 840,
+            "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=840s"
+          }
+        ]
+      },
+      "supplies": [
+        "난해한 열쇠",
+        "사냥의 징조",
+        "금고 속성을 변경할 화폐",
+        "액체 베리시움은 선택 사항"
+      ],
+      "steps": [
+        "성스러운 혼백을 먼저 소모하지 않도록 주변 몬스터와 지도 보스를 정리한다.",
+        "성스러운 혼백이 없다면 해당 지도의 금고 반복 파밍을 중단하는 방식이다.",
+        "금고를 희귀 몬스터 무리 2개 또는 전체 몬스터 무리 7~8개 수준으로 조정한다. 몬스터가 떨어뜨리는 아이템 희귀도와 몬스터 효과 관련 속성도 살핀다.",
+        "첫 금고에서 사냥의 징조와 난해한 열쇠를 활용하고, 방출된 혼백이 다음 금고로 이어지는지 확인하며 반복한다.",
+        "탐험에 묻힌 금고는 난해한 열쇠로 추가 개방한 뒤 마지막 탐험 폭발 순서까지 관리한다."
+      ],
+      "executionEvidence": [
+        {
+          "videoId": "Mi3d9GtgwkI",
+          "startSeconds": 1151,
+          "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=1151s"
+        }
+      ],
+      "constraints": [
+        {
+          "text": "즉시 시체를 파괴하거나 산산조각 내는 빌드는 부활 반복과 충돌한다.",
+          "evidence": {
+            "videoId": "Mi3d9GtgwkI",
+            "startSeconds": 1944,
+            "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=1944s"
+          }
+        },
+        {
+          "text": "지도 하나가 30~60분 이상 걸릴 수 있고 지연 현상이 심하다.",
+          "evidence": {
+            "videoId": "Mi3d9GtgwkI",
+            "startSeconds": 90,
+            "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=90s"
+          }
+        }
+      ],
+      "corrections": [
+        {
+          "text": "제작자 고정 댓글은 룬 잔류물이 지연 현상에 관여하므로 가급적 터뜨리지 않는 쪽으로 정정했다. 본문 29:43의 보상 강화 권장보다 이 정정을 우선한다.",
+          "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&lc=Ugzr_mzuTCEgYtI-_UN4AaABAg",
+          "supersedes": {
+            "videoId": "Mi3d9GtgwkI",
+            "startSeconds": 1783,
+            "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=1783s"
+          }
+        }
+      ],
+      "reportedResults": {
+        "text": "지도 1개에서 신성한 오브 약 200개 상당을 얻은 사례를 소개하지만, 한 시간 이상 걸렸으며 결과 편차가 크다고 설명한다.",
+        "netProfitPerHour": null,
+        "evidence": [
+          {
+            "videoId": "Mi3d9GtgwkI",
+            "startSeconds": 90,
+            "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=90s"
+          }
+        ],
+        "costExample": {
+          "currency": "신성한 오브",
+          "perMapApprox": 9,
+          "includes": "서판 사용분과 경로석",
+          "excludes": "난해한 열쇠 등 추가 소모품 전부를 포함한 총비용은 미확인",
+          "priceDate": "2026-09-19",
+          "sourceUrl": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=160s"
+        }
+      },
+      "unresolved": [
+        "전체 아틀라스 할당 경로·포인트 수",
+        "도리아니·힐다의 완전한 선택 조합",
+        "자격 있는 사냥꾼을 빼면 유리하다는 후반 발언은 미검증 추측이므로 필수 세팅에 포함하지 않음",
+        "성스러운 혼백의 세부 동물별 공식 명칭과 부활·고유 몬스터 전환 조건의 완전한 대조"
+      ]
+    },
+    {
+      "id": "grand-expedition-chests",
+      "name": "대탐험 상자 파밍",
+      "kind": "map",
+      "sourceVideoId": "YHYYZI_qGuQ",
+      "goals": [
+        "화폐 상자",
+        "베리시움 잔류물 보상"
+      ],
+      "investment": "low",
+      "party": "미확인",
+      "patch": null,
+      "summary": "저렴한 경로석으로 들어가 확정 보상과 화폐 상자를 먼저 평가하고, 불필요한 전투와 재료 지출을 줄인다.",
+      "tablets": {
+        "items": [],
+        "notes": [
+          "저투자 방식에서는 서판을 사용하지 않는 쪽을 추천한다."
+        ],
+        "evidence": [
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 824,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=824s"
+          }
+        ]
+      },
+      "waystone": {
+        "tier": 15,
+        "affixCount": null,
+        "corrupted": null,
+        "options": [],
+        "notes": [
+          "저렴한 경로석 사용. 세부 속성과 수치 기준은 명시하지 않는다."
+        ],
+        "evidence": [
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 88,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=88s"
+          }
+        ]
+      },
+      "map": {
+        "regions": [
+          "대탐험"
+        ],
+        "biomes": [
+          "산"
+        ],
+        "conditions": [
+          "탐험 일지로 접근하는 대탐험"
+        ],
+        "optional": [
+          "바다 개발에서 산 선택과 잊힌 고원 조합"
+        ],
+        "evidence": [
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 386,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=386s"
+          }
+        ]
+      },
+      "atlas": {
+        "nodes": [
+          {
+            "name": "바다 개발",
+            "choice": "산",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/Cultivate_the_Sea"
+          },
+          {
+            "name": "잊힌 고원",
+            "choice": null,
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/Forgotten_Heights"
+          }
+        ],
+        "fullTreeVerified": false,
+        "evidence": [
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 386,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=386s"
+          }
+        ]
+      },
+      "masters": {
+        "choices": [
+          {
+            "name": "자도",
+            "role": "베리시움 잔류물 보상 재선택 기회",
+            "nodes": [
+              {
+                "name": "동방의 지식",
+                "choice": null,
+                "basis": "video",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              }
+            ]
+          }
+        ],
+        "fullSetupVerified": false,
+        "evidence": [
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 955,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=955s"
+          }
+        ]
+      },
+      "supplies": [
+        "탐험 일지",
+        "액체 베리시움은 선택 사항"
+      ],
+      "steps": [
+        "전체 베리시움 잔류물의 보상을 살펴 확정 고가 보상이 있는지 먼저 판단한다.",
+        "가치가 불분명하면 화폐 상자가 많은 구역에 폭발물을 집중한다.",
+        "액체 베리시움을 사용할 때 기대 보상보다 재료비가 커지지 않도록 중단 기준을 둔다.",
+        "필요한 상자만 회수하고 다음 지역으로 이동한다."
+      ],
+      "executionEvidence": [
+        {
+          "videoId": "YHYYZI_qGuQ",
+          "startSeconds": 88,
+          "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=88s"
+        }
+      ],
+      "constraints": [
+        {
+          "text": "산 환경과 상자 수량 조합의 실제 효율은 제작자도 확정적인 실험 결과로 제시하지 않는다.",
+          "evidence": {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 386,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=386s"
+          }
+        }
+      ],
+      "corrections": [],
+      "reportedResults": {
+        "text": "고투자 6인 사례의 수익 수치를 이 저투자 방식에 적용하지 않는다.",
+        "netProfitPerHour": null,
+        "evidence": [
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 1105,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=1105s"
+          }
+        ]
+      },
+      "unresolved": [
+        "정확한 적용 패치 번호",
+        "전체 아틀라스 할당 경로",
+        "상자 보상에 대한 환경 효과의 실험 검증",
+        "세부 경로석 속성"
+      ]
+    },
+    {
+      "id": "grand-expedition-runes",
+      "name": "대탐험 룬 중첩 파밍",
+      "kind": "map",
+      "sourceVideoId": "YHYYZI_qGuQ",
+      "goals": [
+        "화폐",
+        "강화한 탐험 몬스터 보상"
+      ],
+      "investment": "high",
+      "party": "수익 사례는 6인",
+      "patch": null,
+      "summary": "이전 폭발의 룬 효과를 이어받는 경로를 구성하고 마지막 보상 지점에 서로 다른 룬을 쌓는다.",
+      "tablets": {
+        "items": [
+          {
+            "name": "방사능 노출 서판",
+            "count": 3,
+            "options": [
+              {
+                "text": "무작위 지도 속성 2개 추가",
+                "priority": "recommended",
+                "metric": "additionalMapModifiers",
+                "min": 2,
+                "unit": "개"
+              },
+              {
+                "text": "몬스터 효과 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": null
+              },
+              {
+                "text": "아이템 희귀도 증가",
+                "priority": "optional",
+                "metric": null,
+                "min": null,
+                "unit": null
+              }
+            ]
+          }
+        ],
+        "notes": [
+          "대탐험에 적용되는 서판으로 방사능 노출 서판을 사용한다는 영상 설명에 따른다.",
+          "예산이 낮으면 몬스터 효과와 아이템 희귀도 중심으로 타협한다."
+        ],
+        "evidence": [
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 869,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=869s"
+          },
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 925,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=925s"
+          },
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 1014,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=1014s"
+          }
+        ]
+      },
+      "waystone": {
+        "tier": null,
+        "affixCount": 8,
+        "corrupted": null,
+        "options": [],
+        "notes": [
+          "서판 3개에서 추가 속성 6개와 경로석 8개 속성을 합쳐 진화 압력에 활용한다."
+        ],
+        "evidence": [
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 1014,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=1014s"
+          }
+        ]
+      },
+      "map": {
+        "regions": [
+          "대탐험"
+        ],
+        "biomes": [],
+        "conditions": [
+          "탐험 일지로 접근하는 대탐험"
+        ],
+        "optional": [],
+        "evidence": [
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 461,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=461s"
+          }
+        ]
+      },
+      "atlas": {
+        "nodes": [
+          {
+            "name": "계산된 투자",
+            "choice": "룬 속성당 아이템 수량",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/Calculated_Investment"
+          },
+          {
+            "name": "묻고 더블로 가",
+            "choice": "추가 룬 속성 확률",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/Double_or_Nothing"
+          }
+        ],
+        "fullTreeVerified": false,
+        "evidence": [
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 461,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=461s"
+          }
+        ]
+      },
+      "masters": {
+        "choices": [
+          {
+            "name": "도리아니",
+            "role": "많은 지도 속성을 몬스터 보상 강화로 전환",
+            "nodes": [
+              {
+                "name": "진화 압력",
+                "choice": null,
+                "basis": "video",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              },
+              {
+                "name": "살점 꿰매기",
+                "choice": "재도전 여유를 위한 선택",
+                "basis": "video",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              }
+            ]
+          }
+        ],
+        "fullSetupVerified": false,
+        "evidence": [
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 955,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=955s"
+          },
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 1014,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=1014s"
+          }
+        ]
+      },
+      "supplies": [
+        "탐험 일지",
+        "액체 베리시움"
+      ],
+      "steps": [
+        "최종 보상을 받을 베리시움 잔류물을 먼저 정한다.",
+        "다른 룬을 이어받을 수 있는 연결 지점을 찾고 폭발 순서를 역으로 계획한다.",
+        "풍요 룬과 권능 룬을 초반 경로에서 확보하는 것을 우선한다.",
+        "같은 룬을 반복하는 것보다 서로 다른 룬의 효과를 누적한다.",
+        "강화가 모인 마지막 지점의 몬스터와 보상을 처리한다."
+      ],
+      "executionEvidence": [
+        {
+          "videoId": "YHYYZI_qGuQ",
+          "startSeconds": 461,
+          "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=461s"
+        },
+        {
+          "videoId": "YHYYZI_qGuQ",
+          "startSeconds": 755,
+          "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=755s"
+        }
+      ],
+      "constraints": [
+        {
+          "text": "룬 중첩으로 몬스터가 크게 강화되므로 전투 성능이 충분해야 한다.",
+          "evidence": {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 461,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=461s"
+          }
+        }
+      ],
+      "corrections": [],
+      "reportedResults": {
+        "text": "6인 고투자 사례로 약 20시간에 신성한 오브 1,000개 상당, 이후 7시간에 400개 이상을 소개한다. 회당 비용은 약 5~6개 상당이라고 설명한다. 비용을 전부 뺀 시간당 순이익은 검증되지 않았다.",
+        "netProfitPerHour": null,
+        "evidence": [
+          {
+            "videoId": "YHYYZI_qGuQ",
+            "startSeconds": 1105,
+            "url": "https://www.youtube.com/watch?v=YHYYZI_qGuQ&t=1105s"
+          }
+        ]
+      },
+      "unresolved": [
+        "정확한 적용 패치 번호",
+        "고투자 세팅의 경로석 등급",
+        "전체 아틀라스 및 대가 선택",
+        "1인 플레이 수익"
+      ]
+    },
+    {
+      "id": "ritual-nameless-cycle",
+      "name": "이름 없는 자의 의례 파밍",
+      "kind": "map",
+      "sourceVideoId": "JIVK4A5g7YU",
+      "goals": [
+        "징조",
+        "고가 의식 헌정품"
+      ],
+      "investment": "low",
+      "party": "미확인",
+      "patch": "0.5",
+      "summary": "이름 없는 자의 의례의 지도 효과를 누적하며 고가 헌정품을 보류하고, 주변 의식에서 회수한다.",
+      "tablets": {
+        "items": [
+          {
+            "name": "의식 서판",
+            "count": null,
+            "options": [
+              {
+                "text": "징조 등장 확률 60% 이상",
+                "priority": "recommended",
+                "metric": "omenChance",
+                "min": 60,
+                "unit": "%"
+              }
+            ]
+          },
+          {
+            "name": "신념의 자유",
+            "count": 1,
+            "options": [
+              {
+                "text": "헌정품 무작위 변경 횟수 증가를 활용",
+                "priority": "required",
+                "metric": null,
+                "min": null,
+                "unit": null
+              }
+            ]
+          }
+        ],
+        "notes": [
+          "일반 의식 서판의 정확한 개수는 추가 화면 확인 필요.",
+          "회수 단계에서는 공물 점수 증가·보류 비용 감소 중심 서판으로 전환한다."
+        ],
+        "evidence": [
+          {
+            "videoId": "JIVK4A5g7YU",
+            "startSeconds": 198,
+            "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=198s"
+          },
+          {
+            "videoId": "JIVK4A5g7YU",
+            "startSeconds": 257,
+            "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=257s"
+          }
+        ]
+      },
+      "waystone": {
+        "tier": 15,
+        "affixCount": null,
+        "corrupted": null,
+        "options": [],
+        "notes": [
+          "15등급 지도 보스를 처치할 전투력을 요구한다. 모든 의례 지도에 같은 경로석 속성을 강제한 것으로 해석하지 않는다."
+        ],
+        "evidence": [
+          {
+            "videoId": "JIVK4A5g7YU",
+            "startSeconds": 0,
+            "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=0s"
+          },
+          {
+            "videoId": "JIVK4A5g7YU",
+            "startSeconds": 89,
+            "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=89s"
+          }
+        ]
+      },
+      "map": {
+        "regions": [
+          "이름 없는 자의 의례"
+        ],
+        "biomes": [],
+        "conditions": [
+          "왕의 머리로 시작",
+          "6개 지도 진행 후 주변 일반 지도에서 보류 헌정품 회수"
+        ],
+        "optional": [
+          "환영 200% 등 추가 강화는 선택 사항"
+        ],
+        "evidence": [
+          {
+            "videoId": "JIVK4A5g7YU",
+            "startSeconds": 123,
+            "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=123s"
+          },
+          {
+            "videoId": "JIVK4A5g7YU",
+            "startSeconds": 257,
+            "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=257s"
+          },
+          {
+            "videoId": "JIVK4A5g7YU",
+            "startSeconds": 443,
+            "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=443s"
+          }
+        ]
+      },
+      "atlas": {
+        "nodes": [
+          {
+            "name": "나그네의 비애",
+            "choice": "더럽혀진",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/Travellers_Woe"
+          },
+          {
+            "name": "고무된 제물",
+            "choice": "헌정품 수 증가가 포함된 선택",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/Invigorated_Sacrifices"
+          }
+        ],
+        "fullTreeVerified": false,
+        "evidence": [
+          {
+            "videoId": "JIVK4A5g7YU",
+            "startSeconds": 73,
+            "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=73s"
+          }
+        ]
+      },
+      "masters": {
+        "choices": [
+          {
+            "name": "자도",
+            "role": "영상 추천 대가",
+            "nodes": []
+          }
+        ],
+        "fullSetupVerified": false,
+        "evidence": [
+          {
+            "videoId": "JIVK4A5g7YU",
+            "startSeconds": 195,
+            "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=195s"
+          }
+        ]
+      },
+      "supplies": [
+        "왕의 머리",
+        "직접 조달할 경우 왕 알현"
+      ],
+      "steps": [
+        "왕의 머리를 구매하거나 왕 알현에서 연무 속의 왕을 처치해 준비한다.",
+        "예견된 하사품의 확정 보상과 예견된 확산의 누적 이득을 비교해 순서를 정한다.",
+        "공물 점수 증가, 보류·무작위 변경 비용 감소, 야생림 몬스터 추가를 우선 검토한다.",
+        "고가 헌정품은 보류한다. 같은 지도 안에서 중복 보류할 필요는 없지만 다음 지도에 다시 나오면 다시 관리한다.",
+        "6개 지도를 마친 뒤 주변 일반 지도 약 3~5개에서 보류한 헌정품을 회수한다.",
+        "다음 왕의 머리를 사용하기 전에 보류 보상 회수를 끝낸다."
+      ],
+      "executionEvidence": [
+        {
+          "videoId": "JIVK4A5g7YU",
+          "startSeconds": 89,
+          "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=89s"
+        },
+        {
+          "videoId": "JIVK4A5g7YU",
+          "startSeconds": 123,
+          "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=123s"
+        },
+        {
+          "videoId": "JIVK4A5g7YU",
+          "startSeconds": 175,
+          "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=175s"
+        },
+        {
+          "videoId": "JIVK4A5g7YU",
+          "startSeconds": 257,
+          "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=257s"
+        },
+        {
+          "videoId": "JIVK4A5g7YU",
+          "startSeconds": 312,
+          "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=312s"
+        }
+      ],
+      "constraints": [
+        {
+          "text": "0.5 영상이다. 보류 보상 유지·초기화 규칙과 현재 비용은 재확인해야 한다.",
+          "evidence": {
+            "videoId": "JIVK4A5g7YU",
+            "startSeconds": 312,
+            "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=312s"
+          }
+        },
+        {
+          "text": "캐릭터의 아이템 희귀도보다 15등급 지도 보스 처치 능력을 우선한다.",
+          "evidence": {
+            "videoId": "JIVK4A5g7YU",
+            "startSeconds": 0,
+            "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=0s"
+          }
+        }
+      ],
+      "corrections": [],
+      "reportedResults": {
+        "text": "하드코어 당시 시세로 100개 지도·약 7시간에 신성한 오브 665개 상당, 헤드헌터를 제외하면 545개 상당을 제시한다. 순이익 여부는 불명확하다.",
+        "netProfitPerHour": null,
+        "evidence": [
+          {
+            "videoId": "JIVK4A5g7YU",
+            "startSeconds": 413,
+            "url": "https://www.youtube.com/watch?v=JIVK4A5g7YU&t=413s"
+          }
+        ]
+      },
+      "unresolved": [
+        "0.5.5 이후 보류 보상 규칙의 재검증",
+        "일반 의식 서판 개수",
+        "전체 아틀라스 및 자도 선택",
+        "경로석 속성 기준"
+      ]
+    },
+    {
+      "id": "tablet-drop",
+      "name": "서판 수집 파밍",
+      "kind": "map",
+      "sourceVideoId": "rgrR5ty_O9Q",
+      "goals": [
+        "서판",
+        "판매용 경로석"
+      ],
+      "investment": "low_to_medium",
+      "party": "미확인",
+      "patch": "0.5.5",
+      "summary": "서판 수량과 경로석 보상을 높이고 일반 지도와 탐험 지역을 순회한다.",
+      "tablets": {
+        "items": [
+          {
+            "name": "방사능 노출 서판",
+            "count": 3,
+            "remainingUses": 10,
+            "options": [
+              {
+                "text": "경로석 수량 35% 이상",
+                "priority": "recommended",
+                "metric": "waystoneQuantity",
+                "min": 35,
+                "unit": "%"
+              },
+              {
+                "text": "몬스터 효과 증가",
+                "priority": "optional",
+                "metric": null,
+                "min": null,
+                "unit": null
+              },
+              {
+                "text": "무리 규모 증가",
+                "priority": "optional",
+                "metric": null,
+                "min": null,
+                "unit": null
+              },
+              {
+                "text": "희귀 몬스터 수 증가",
+                "priority": "optional",
+                "metric": null,
+                "min": null,
+                "unit": null
+              }
+            ]
+          }
+        ],
+        "notes": [],
+        "evidence": [
+          {
+            "videoId": "rgrR5ty_O9Q",
+            "startSeconds": 633,
+            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=633s"
+          }
+        ]
+      },
+      "waystone": {
+        "tier": 15,
+        "affixCount": 6,
+        "corrupted": true,
+        "options": [
+          {
+            "text": "경로석 출현 확률 100% 이상",
+            "priority": "recommended",
+            "metric": "waystoneDropChance",
+            "min": 100,
+            "unit": "%"
+          }
+        ],
+        "notes": [
+          "90% 수준은 예산상 타협 가능.",
+          "연금술의 오브 → 엑잘티드 오브 → 바알 오브 순으로 준비.",
+          "16등급이나 좋은 8속성 결과는 판매하고, 14등급으로 내려간 결과는 이 방식에서 제외한다."
+        ],
+        "evidence": [
+          {
+            "videoId": "rgrR5ty_O9Q",
+            "startSeconds": 633,
+            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=633s"
+          }
+        ]
+      },
+      "map": {
+        "regions": [
+          "일반 지도",
+          "일반 탐험 지도"
+        ],
+        "biomes": [
+          "산"
+        ],
+        "conditions": [
+          "탐험 일지로 섬 지역을 드러낸 뒤 바다 개발의 산 선택 활용"
+        ],
+        "optional": [
+          "이상 지역은 전해지지 않은 역사로 전환"
+        ],
+        "evidence": [
+          {
+            "videoId": "rgrR5ty_O9Q",
+            "startSeconds": 774,
+            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=774s"
+          }
+        ]
+      },
+      "atlas": {
+        "nodes": [
+          {
+            "name": "산 숙련",
+            "choice": "서판 수량 50%",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/Mountain_Mastery"
+          },
+          {
+            "name": "바다 개발",
+            "choice": "산",
+            "basis": "video",
+            "poedbUrl": "https://poe2db.tw/kr/Cultivate_the_Sea"
+          }
+        ],
+        "fullTreeVerified": false,
+        "evidence": [
+          {
+            "videoId": "rgrR5ty_O9Q",
+            "startSeconds": 774,
+            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=774s"
+          }
+        ]
+      },
+      "masters": {
+        "choices": [
+          {
+            "name": "자도",
+            "role": "기본 구성",
+            "nodes": [
+              {
+                "name": "뜻밖의 임무",
+                "choice": null,
+                "basis": "video",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              },
+              {
+                "name": "예기치 못한 위협",
+                "choice": null,
+                "basis": "video",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              },
+              {
+                "name": "부분적인 해독",
+                "choice": null,
+                "basis": "video",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              },
+              {
+                "name": "기나긴 나날",
+                "choice": null,
+                "basis": "video",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              }
+            ]
+          },
+          {
+            "name": "자도",
+            "role": "이상 지역에서는 기나긴 나날을 전해지지 않은 역사로 교체",
+            "nodes": [
+              {
+                "name": "전해지지 않은 역사",
+                "choice": null,
+                "basis": "video",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              }
+            ]
+          },
+          {
+            "name": "자도",
+            "role": "탐험에서는 예기치 못한 위협 대신 동방의 지식 선택 가능",
+            "nodes": [
+              {
+                "name": "동방의 지식",
+                "choice": null,
+                "basis": "video",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              }
+            ]
+          }
+        ],
+        "fullSetupVerified": true,
+        "evidence": [
+          {
+            "videoId": "rgrR5ty_O9Q",
+            "startSeconds": 740,
+            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=740s"
+          },
+          {
+            "videoId": "rgrR5ty_O9Q",
+            "startSeconds": 774,
+            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=774s"
+          }
+        ]
+      },
+      "supplies": [
+        "연금술의 오브",
+        "엑잘티드 오브",
+        "바알 오브",
+        "탐험 일지는 섬 지역 확보용"
+      ],
+      "steps": [
+        "조건에 맞는 방사능 노출 서판 3개와 타락한 15등급 경로석을 준비한다.",
+        "일반 지도에서 서판을 모으고 좋은 서판 속성을 분류한다.",
+        "산 환경의 서판 수량 효과를 갖추고 일반 탐험 지도도 순회한다.",
+        "이상 지역이나 탐험에 들어가기 전 자도의 선택을 해당 목적에 맞게 교체한다.",
+        "경로석 제작 중 나온 고가 결과물은 별도로 판매 대상으로 분류한다."
+      ],
+      "executionEvidence": [
+        {
+          "videoId": "rgrR5ty_O9Q",
+          "startSeconds": 633,
+          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=633s"
+        },
+        {
+          "videoId": "rgrR5ty_O9Q",
+          "startSeconds": 740,
+          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=740s"
+        },
+        {
+          "videoId": "rgrR5ty_O9Q",
+          "startSeconds": 774,
+          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=774s"
+        }
+      ],
+      "constraints": [
+        {
+          "text": "일반 탐험 지도 순회와 대탐험 고투자 파밍을 별도 전략으로 관리한다.",
+          "evidence": {
+            "videoId": "rgrR5ty_O9Q",
+            "startSeconds": 774,
+            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=774s"
+          }
+        }
+      ],
+      "corrections": [],
+      "reportedResults": {
+        "text": "현재 시세로 환산할 수 있는 통일된 순수익 표본은 확보하지 못했다.",
+        "netProfitPerHour": null,
+        "evidence": []
+      },
+      "unresolved": [
+        "전체 아틀라스 연결 경로",
+        "플레이 시간 대비 실제 판매 완료 수익"
+      ]
+    },
+    {
+      "id": "cleansed-fracturing",
+      "name": "정화된 지역 분열의 오브 파밍",
+      "kind": "map",
+      "sourceVideoId": "EdOOPRJIoQ4",
+      "goals": [
+        "분열의 오브",
+        "징조",
+        "환영 보상"
+      ],
+      "investment": "medium_to_high",
+      "party": "미확인",
+      "patch": "0.5.5",
+      "summary": "정화된 지역에 야생림과 소환의 원을 더하고, 추가 속성이 있는 몬스터의 분열의 오브 보상을 노린다.",
+      "tablets": {
+        "items": [
+          {
+            "name": "환영 서판",
+            "count": 1,
+            "options": [
+              {
+                "text": "무작위 지도 속성 2개 추가",
+                "priority": "required",
+                "metric": "additionalMapModifiers",
+                "min": 2,
+                "unit": "개"
+              },
+              {
+                "text": "무리 규모 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": null
+              },
+              {
+                "text": "몬스터 효과 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": null
+              },
+              {
+                "text": "비용이 높으면 아이템 희귀도로 타협",
+                "priority": "optional",
+                "metric": null,
+                "min": null,
+                "unit": null
+              }
+            ]
+          },
+          {
+            "name": "의식 서판",
+            "count": 1,
+            "options": [
+              {
+                "text": "무작위 지도 속성 2개 추가",
+                "priority": "required",
+                "metric": "additionalMapModifiers",
+                "min": 2,
+                "unit": "개"
+              },
+              {
+                "text": "무리 규모 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": null
+              },
+              {
+                "text": "몬스터 효과 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": null
+              },
+              {
+                "text": "비용이 높으면 아이템 희귀도로 타협",
+                "priority": "optional",
+                "metric": null,
+                "min": null,
+                "unit": null
+              }
+            ]
+          },
+          {
+            "name": "균열 서판",
+            "count": 1,
+            "options": [
+              {
+                "text": "무작위 지도 속성 2개 추가",
+                "priority": "required",
+                "metric": "additionalMapModifiers",
+                "min": 2,
+                "unit": "개"
+              },
+              {
+                "text": "무리 규모 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": null
+              },
+              {
+                "text": "몬스터 효과 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": null
+              },
+              {
+                "text": "비용이 높으면 아이템 희귀도로 타협",
+                "priority": "optional",
+                "metric": null,
+                "min": null,
+                "unit": null
+              }
+            ]
+          }
+        ],
+        "notes": [
+          "세 종류 사용은 고대 명문의 서판 효과 증가와 연결된다.",
+          "무리 규모·몬스터 효과·아이템 희귀도는 비용에 따라 조합한다."
+        ],
+        "evidence": [
+          {
+            "videoId": "EdOOPRJIoQ4",
+            "startSeconds": 39,
+            "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4&t=39s"
+          },
+          {
+            "videoId": "EdOOPRJIoQ4",
+            "startSeconds": 70,
+            "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4&t=70s"
+          }
+        ]
+      },
+      "waystone": {
+        "tier": null,
+        "affixCount": null,
+        "corrupted": null,
+        "options": [
+          {
+            "text": "몬스터 희귀도 100% 이상",
+            "priority": "recommended",
+            "metric": "monsterRarity",
+            "min": 100,
+            "unit": "%"
+          },
+          {
+            "text": "무리 규모 증가로 대체 가능",
+            "priority": "alternative",
+            "metric": null,
+            "min": null,
+            "unit": null
+          }
+        ],
+        "notes": [
+          "등급과 전체 속성 개수는 자막에서 명시하지 않는다."
+        ],
+        "evidence": [
+          {
+            "videoId": "EdOOPRJIoQ4",
+            "startSeconds": 77,
+            "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4&t=77s"
+          }
+        ]
+      },
+      "map": {
+        "regions": [
+          "정화된 지역"
+        ],
+        "biomes": [],
+        "conditions": [
+          "타락한 연결부를 완료해 정화된 지역 확보",
+          "신성한 꽃으로 야생림 추가"
+        ],
+        "optional": [],
+        "evidence": [
+          {
+            "videoId": "EdOOPRJIoQ4",
+            "startSeconds": 87,
+            "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4&t=87s"
+          }
+        ]
+      },
+      "atlas": {
+        "nodes": [
+          {
+            "name": "숨겨진 흉터",
+            "choice": null,
+            "basis": "poedb_prerequisite",
+            "poedbUrl": "https://poe2db.tw/kr/Hidden_Scars"
+          },
+          {
+            "name": "머나먼 거리에서",
+            "choice": null,
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/From_Distances_Untold"
+          },
+          {
+            "name": "대군주의 영토",
+            "choice": "소환의 원",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/Overlords_Domain"
+          },
+          {
+            "name": "선택받은 길",
+            "choice": "소환의 원",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/The_Chosen_Path"
+          }
+        ],
+        "otherPriorities": [
+          "희귀 몬스터 무리의 추가 희귀 몬스터",
+          "마법 몬스터의 추가 속성",
+          "무리 규모·몬스터 효과·희귀 몬스터 수"
+        ],
+        "fullTreeVerified": false,
+        "evidence": [
+          {
+            "videoId": "EdOOPRJIoQ4",
+            "startSeconds": 127,
+            "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4&t=127s"
+          },
+          {
+            "videoId": "EdOOPRJIoQ4",
+            "startSeconds": 187,
+            "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4&t=187s"
+          }
+        ]
+      },
+      "masters": {
+        "choices": [
+          {
+            "name": "힐다",
+            "role": "서판 세 종류 효과와 소환의 원 재발동 활용",
+            "nodes": [
+              {
+                "name": "고대 명문",
+                "choice": null,
+                "basis": "effect_matched",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              },
+              {
+                "name": "교배철",
+                "choice": null,
+                "basis": "screen_and_effect",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              },
+              {
+                "name": "점령한 영역",
+                "choice": null,
+                "basis": "effect_matched",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              }
+            ]
+          }
+        ],
+        "fullSetupVerified": false,
+        "evidence": [
+          {
+            "videoId": "EdOOPRJIoQ4",
+            "startSeconds": 166,
+            "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4&t=166s"
+          }
+        ]
+      },
+      "supplies": [
+        "신성한 꽃"
+      ],
+      "steps": [
+        "타락한 연결부를 완료해 파밍할 정화된 지도를 확보한다.",
+        "신성한 꽃의 연결 지도 적용 범위를 확인하고 야생림을 준비한다.",
+        "먼저 야생림을 진행해 도깨비불을 모은다.",
+        "환영의 거울을 활성화하고 지도 내 희귀 몬스터와 지도 보스를 빠짐없이 처치한다.",
+        "소환의 원을 진행한다. 의식 원 안의 정화된 몬스터를 처치한 경우 의식도 수행한다.",
+        "환영을 종료해 보상을 회수한 뒤 다음 지도로 이동한다."
+      ],
+      "executionEvidence": [
+        {
+          "videoId": "EdOOPRJIoQ4",
+          "startSeconds": 87,
+          "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4&t=87s"
+        },
+        {
+          "videoId": "EdOOPRJIoQ4",
+          "startSeconds": 209,
+          "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4&t=209s"
+        },
+        {
+          "videoId": "EdOOPRJIoQ4",
+          "startSeconds": 278,
+          "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4&t=278s"
+        }
+      ],
+      "constraints": [
+        {
+          "text": "영상의 수익 표본은 10개 지도로 작다. 분열의 오브 가격과 실제 드롭 편차에 크게 영향을 받는다.",
+          "evidence": {
+            "videoId": "EdOOPRJIoQ4",
+            "startSeconds": 262,
+            "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4&t=262s"
+          }
+        }
+      ],
+      "corrections": [],
+      "reportedResults": {
+        "sampleMaps": 10,
+        "fracturingOrbs": 9,
+        "text": "10개 지도에서 분열의 오브 9개. 당시 개당 신성한 오브 10개 이상으로 계산한다. 제목의 시간당 수익은 비용·시간 산정 전체를 검증하지 못했으므로 순이익 필드에 넣지 않는다.",
+        "netProfitPerHour": null,
+        "evidence": [
+          {
+            "videoId": "EdOOPRJIoQ4",
+            "startSeconds": 262,
+            "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4&t=262s"
+          },
+          {
+            "videoId": "EdOOPRJIoQ4",
+            "startSeconds": 357,
+            "url": "https://www.youtube.com/watch?v=EdOOPRJIoQ4&t=357s"
+          }
+        ]
+      },
+      "unresolved": [
+        "경로석 등급·전체 속성 수",
+        "전체 아틀라스 연결 경로",
+        "힐다의 네 가지 최종 선택: 화면에 보이는 배분과 음성의 추천 대안이 완전히 일치하지 않아 4개 확정 세팅으로 제공하지 않음",
+        "야생림 도깨비불의 종류별 공식 한국어 명칭 대조가 끝나지 않아 영상의 세부 수집 우선순위는 미수록"
+      ]
+    },
+    {
+      "id": "tablet-crafting-sale",
+      "name": "서판 제작·판매",
+      "kind": "crafting",
+      "sourceVideoId": "rgrR5ty_O9Q",
+      "goals": [
+        "유효 속성 서판 판매"
+      ],
+      "investment": "variable",
+      "party": "해당 없음",
+      "patch": "0.5.5",
+      "summary": "일반·마법 서판의 속성을 선별한 뒤 가치가 있는 것만 희귀 등급 제작을 이어간다.",
+      "tablets": {
+        "items": [],
+        "notes": [
+          "여러 종류의 일반·마법 서판을 제작 재료로 사용한다. 지도에 넣는 서판 조합을 뜻하지 않는다."
+        ],
+        "evidence": [
+          {
+            "videoId": "rgrR5ty_O9Q",
+            "startSeconds": 362,
+            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=362s"
+          }
+        ]
+      },
+      "waystone": null,
+      "map": null,
+      "atlas": null,
+      "masters": null,
+      "supplies": [
+        "진화의 오브",
+        "확장의 오브",
+        "제왕의 오브",
+        "엑잘티드 오브",
+        "연금술의 오브",
+        "카오스 오브",
+        "신성한 오브"
+      ],
+      "steps": [
+        "일반 서판에 진화의 오브와 확장의 오브를 사용해 유효 속성을 확인한다.",
+        "좋은 속성이 있으면 제왕의 오브와 엑잘티드 오브로 추가 속성을 붙인다.",
+        "가치가 낮으면 연금술의 오브를 사용하는 경로 또는 재련 작업대의 3개 교환을 검토한다.",
+        "자본을 더 쓸 경우 카오스 오브 반복 제작을 고려하되 이미 붙은 좋은 속성도 바뀔 수 있음을 반영한다.",
+        "신성한 오브로 수치를 높이는 작업은 판매가 차이가 추가 비용보다 클 때만 검토한다."
+      ],
+      "executionEvidence": [
+        {
+          "videoId": "rgrR5ty_O9Q",
+          "startSeconds": 362,
+          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=362s"
+        }
+      ],
+      "constraints": [
+        {
+          "text": "표시된 판매 희망가와 실제 거래 완료 가격을 구분하고, 제작비·미판매 재고를 함께 계산해야 한다.",
+          "evidence": {
+            "videoId": "rgrR5ty_O9Q",
+            "startSeconds": 362,
+            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=362s"
+          }
+        }
+      ],
+      "corrections": [
+        {
+          "text": "영상 설명란은 2:14의 통달한 영토 관련 설명에서 가치 있는 환경을 풀에서 숲으로 정정한다. PoEDB에서 통달한 영토 명칭과 환경별 변형을 확인했다.",
+          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q",
+          "supersedes": {
+            "videoId": "rgrR5ty_O9Q",
+            "startSeconds": 134,
+            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=134s"
+          }
+        }
+      ],
+      "reportedResults": {
+        "text": "영상의 가격 예시는 2026-09-17 당시 설명이며 현재 판매가나 수익 보장으로 사용하지 않는다.",
+        "netProfitPerHour": null,
+        "evidence": [
+          {
+            "videoId": "rgrR5ty_O9Q",
+            "startSeconds": 96,
+            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=96s"
+          }
+        ]
+      },
+      "unresolved": [
+        "각 서판 속성의 현재 거래 완료 가격"
+      ]
+    }
+  ],
+  "salesReference": [
+    {
+      "tablet": "방사능 노출 서판",
+      "priorities": [
+        "무작위 지도 속성 추가",
+        "몬스터 효과",
+        "희귀 몬스터 수",
+        "아이템 희귀도"
+      ],
+      "evidence": [
+        {
+          "videoId": "rgrR5ty_O9Q",
+          "startSeconds": 96,
+          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=96s"
+        }
+      ],
+      "wording": "검색용 의미 요약이며 게임 속성 문구의 완전한 전사가 아님"
+    },
+    {
+      "tablet": "의식 서판",
+      "priorities": [
+        "헌정품 무작위 변경 추가 횟수",
+        "징조 등장 확률",
+        "공물 점수",
+        "무작위 변경·보류 비용 감소"
+      ],
+      "evidence": [
+        {
+          "videoId": "rgrR5ty_O9Q",
+          "startSeconds": 96,
+          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=96s"
+        }
+      ],
+      "wording": "검색용 의미 요약이며 게임 속성 문구의 완전한 전사가 아님"
+    },
+    {
+      "tablet": "심연 서판",
+      "priorities": [
+        "무작위 지도 속성 추가",
+        "닫은 구덩이 수에 따른 강화",
+        "보상 반복",
+        "추가 심연"
+      ],
+      "evidence": [
+        {
+          "videoId": "rgrR5ty_O9Q",
+          "startSeconds": 96,
+          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=96s"
+        }
+      ],
+      "wording": "검색용 의미 요약이며 게임 속성 문구의 완전한 전사가 아님"
+    },
+    {
+      "tablet": "균열 서판",
+      "priorities": [
+        "안정된 균열의 추가 희귀 몬스터"
+      ],
+      "evidence": [
+        {
+          "videoId": "rgrR5ty_O9Q",
+          "startSeconds": 96,
+          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=96s"
+        }
+      ],
+      "wording": "검색용 의미 요약이며 게임 속성 문구의 완전한 전사가 아님"
+    },
+    {
+      "tablet": "환영 서판",
+      "priorities": [
+        "분열의 거울 등장 확률",
+        "파편 보상",
+        "몬스터 효과"
+      ],
+      "evidence": [
+        {
+          "videoId": "rgrR5ty_O9Q",
+          "startSeconds": 96,
+          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=96s"
+        }
+      ],
+      "wording": "검색용 의미 요약이며 게임 속성 문구의 완전한 전사가 아님"
+    },
+    {
+      "tablet": "사원 서판",
+      "priorities": [
+        "수정 관련 확률",
+        "고유 몬스터의 추가 속성",
+        "추가 고유 몬스터"
+      ],
+      "evidence": [
+        {
+          "videoId": "rgrR5ty_O9Q",
+          "startSeconds": 96,
+          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=96s"
+        }
+      ],
+      "wording": "검색용 의미 요약이며 게임 속성 문구의 완전한 전사가 아님"
+    },
+    {
+      "tablet": "탐험 서판",
+      "priorities": [
+        "무작위 지도 속성 추가",
+        "몬스터 효과",
+        "추가 베리시움 잔류물",
+        "추가 룬 효과"
+      ],
+      "evidence": [
+        {
+          "videoId": "rgrR5ty_O9Q",
+          "startSeconds": 96,
+          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=96s"
+        }
+      ],
+      "wording": "검색용 의미 요약이며 게임 속성 문구의 완전한 전사가 아님"
+    }
+  ],
+  "suggestedFilters": [
+    "목적",
+    "지도 파밍/제작·판매",
+    "영상 패치",
+    "재검증 필요",
+    "서판 종류",
+    "서판 개수",
+    "투자 수준",
+    "대가",
+    "지도 환경",
+    "경로석 등급",
+    "몬스터 희귀도",
+    "아이템 희귀도",
+    "무리 규모",
+    "경로석 출현 확률",
+    "완전한 아틀라스 세팅 확인 여부"
+  ]
+}
