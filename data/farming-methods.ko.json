@@ -13,7 +13,7 @@
         "name": "베리시움 잔류물",
         "alsoShownAs": "베리시움 유적",
         "url": "https://poe2db.tw/kr/Verisium_Remnant",
-        "note": "PoEDB에서 상세 페이지 제목과 일부 본문·연결 문구가 다르다. 상세 페이지 제목으로 통일했다."
+        "note": "PoEDB의 상세 페이지 제목과 일부 본문 표기가 다를 때는 상세 페이지 제목을 기준으로 한다."
       }
     ]
   },
@@ -63,7 +63,7 @@
     {
       "id": "rgrR5ty_O9Q",
       "creator": "EasyBabi",
-      "titleKo": "서판 파밍과 제작·판매",
+      "titleKo": "서판 수집 파밍",
       "publishedAt": "2026-09-17",
       "patch": "0.5.5",
       "patchEvidence": "설명란",
@@ -462,7 +462,6 @@
     {
       "id": "azmeri-strongbox",
       "name": "아즈메리 혼백 금고 파밍",
-      "kind": "map",
       "sourceVideoId": "Mi3d9GtgwkI",
       "goals": [
         "화폐",
@@ -511,7 +510,7 @@
         ],
         "notes": [
           "네 번째 서판 사용에는 도시 환경의 산업의 진보 조건을 갖춘다.",
-          "영상은 서판 효과 증가로 묻힌 금고 수를 늘리는 구성을 사용한다. 서판 3개만으로 같은 금고 수가 보장되지는 않는다.",
+          "묻힌 금고 수를 늘리려면 서판 효과 증가도 함께 갖춘다. 서판 3개만으로 같은 금고 수가 보장되지는 않는다.",
           "영상 예시는 서판 효과 54% 증가에서 금고 2개가 3개로 증가하고, 탐험 2회에 총 18개가 등장하는 구성이다."
         ],
         "evidence": [
@@ -536,7 +535,7 @@
           }
         ],
         "notes": [
-          "아이템 희귀도와 몬스터 희귀도를 서로 다른 검색 항목으로 취급한다."
+          "몬스터 희귀도 100% 이상이 필요하다. 아이템 희귀도와는 다른 조건이므로 구매할 때 구분한다."
         ],
         "evidence": [
           {
@@ -682,10 +681,10 @@
       ],
       "steps": [
         "성스러운 혼백을 먼저 소모하지 않도록 주변 몬스터와 지도 보스를 정리한다.",
-        "성스러운 혼백이 없다면 해당 지도의 금고 반복 파밍을 중단하는 방식이다.",
+        "성스러운 혼백이 없다면 해당 지도의 금고 반복 파밍을 중단한다.",
         "금고를 희귀 몬스터 무리 2개 또는 전체 몬스터 무리 7~8개 수준으로 조정한다. 몬스터가 떨어뜨리는 아이템 희귀도와 몬스터 효과 관련 속성도 살핀다.",
         "첫 금고에서 사냥의 징조와 난해한 열쇠를 활용하고, 방출된 혼백이 다음 금고로 이어지는지 확인하며 반복한다.",
-        "탐험에 묻힌 금고는 난해한 열쇠로 추가 개방한 뒤 마지막 탐험 폭발 순서까지 관리한다."
+        "탐험에 묻힌 금고는 난해한 열쇠로 추가 개방한 뒤 마지막 탐험 폭발 순서까지 관리한다. 룬 잔류물은 가급적 폭발 범위에서 제외한다."
       ],
       "executionEvidence": [
         {
@@ -710,17 +709,11 @@
             "startSeconds": 90,
             "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=90s"
           }
-        }
-      ],
-      "corrections": [
+        },
         {
-          "text": "제작자 고정 댓글은 룬 잔류물이 지연 현상에 관여하므로 가급적 터뜨리지 않는 쪽으로 정정했다. 본문 29:43의 보상 강화 권장보다 이 정정을 우선한다.",
-          "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&lc=Ugzr_mzuTCEgYtI-_UN4AaABAg",
-          "supersedes": {
-            "videoId": "Mi3d9GtgwkI",
-            "startSeconds": 1783,
-            "url": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&t=1783s"
-          }
+          "text": "룬 잔류물은 지연 현상을 유발할 수 있으므로 가급적 터뜨리지 않는다.",
+          "evidence": null,
+          "sourceUrl": "https://www.youtube.com/watch?v=Mi3d9GtgwkI&lc=Ugzr_mzuTCEgYtI-_UN4AaABAg"
         }
       ],
       "reportedResults": {
@@ -745,14 +738,13 @@
       "unresolved": [
         "전체 아틀라스 할당 경로·포인트 수",
         "도리아니·힐다의 완전한 선택 조합",
-        "자격 있는 사냥꾼을 빼면 유리하다는 후반 발언은 미검증 추측이므로 필수 세팅에 포함하지 않음",
+        "자격 있는 사냥꾼을 제외했을 때의 효율 차이",
         "성스러운 혼백의 세부 동물별 공식 명칭과 부활·고유 몬스터 전환 조건의 완전한 대조"
       ]
     },
     {
       "id": "grand-expedition-chests",
       "name": "대탐험 상자 파밍",
-      "kind": "map",
       "sourceVideoId": "YHYYZI_qGuQ",
       "goals": [
         "화폐 상자",
@@ -765,7 +757,7 @@
       "tablets": {
         "items": [],
         "notes": [
-          "저투자 방식에서는 서판을 사용하지 않는 쪽을 추천한다."
+          "서판 없이 시작해 준비 비용을 줄인다."
         ],
         "evidence": [
           {
@@ -781,7 +773,7 @@
         "corrupted": null,
         "options": [],
         "notes": [
-          "저렴한 경로석 사용. 세부 속성과 수치 기준은 명시하지 않는다."
+          "저렴한 경로석을 사용한다. 세부 속성과 최소 수치 기준은 미확인이다."
         ],
         "evidence": [
           {
@@ -879,7 +871,7 @@
       ],
       "constraints": [
         {
-          "text": "산 환경과 상자 수량 조합의 실제 효율은 제작자도 확정적인 실험 결과로 제시하지 않는다.",
+          "text": "산 환경과 상자 수량 조합의 효율은 실험으로 검증되지 않았다. 환경 전환에 추가 비용을 쓰기 전에 고려한다.",
           "evidence": {
             "videoId": "YHYYZI_qGuQ",
             "startSeconds": 386,
@@ -887,9 +879,8 @@
           }
         }
       ],
-      "corrections": [],
       "reportedResults": {
-        "text": "고투자 6인 사례의 수익 수치를 이 저투자 방식에 적용하지 않는다.",
+        "text": "저투자 방식의 수익 표본은 미확인이다. 같은 영상의 수익 사례는 고투자 6인 플레이 기준이다.",
         "netProfitPerHour": null,
         "evidence": [
           {
@@ -909,7 +900,6 @@
     {
       "id": "grand-expedition-runes",
       "name": "대탐험 룬 중첩 파밍",
-      "kind": "map",
       "sourceVideoId": "YHYYZI_qGuQ",
       "goals": [
         "화폐",
@@ -950,7 +940,7 @@
           }
         ],
         "notes": [
-          "대탐험에 적용되는 서판으로 방사능 노출 서판을 사용한다는 영상 설명에 따른다.",
+          "대탐험에는 방사능 노출 서판을 사용한다.",
           "예산이 낮으면 몬스터 효과와 아이템 희귀도 중심으로 타협한다."
         ],
         "evidence": [
@@ -1096,7 +1086,6 @@
           }
         }
       ],
-      "corrections": [],
       "reportedResults": {
         "text": "6인 고투자 사례로 약 20시간에 신성한 오브 1,000개 상당, 이후 7시간에 400개 이상을 소개한다. 회당 비용은 약 5~6개 상당이라고 설명한다. 비용을 전부 뺀 시간당 순이익은 검증되지 않았다.",
         "netProfitPerHour": null,
@@ -1118,7 +1107,6 @@
     {
       "id": "ritual-nameless-cycle",
       "name": "이름 없는 자의 의례 파밍",
-      "kind": "map",
       "sourceVideoId": "JIVK4A5g7YU",
       "goals": [
         "징조",
@@ -1180,7 +1168,7 @@
         "corrupted": null,
         "options": [],
         "notes": [
-          "15등급 지도 보스를 처치할 전투력을 요구한다. 모든 의례 지도에 같은 경로석 속성을 강제한 것으로 해석하지 않는다."
+          "15등급 지도 보스를 처치할 전투력이 필요하다. 경로석의 세부 속성 기준은 미확인이다."
         ],
         "evidence": [
           {
@@ -1253,7 +1241,7 @@
         "choices": [
           {
             "name": "자도",
-            "role": "영상 추천 대가",
+            "role": "추천 대가. 세부 능력 구성은 미확인.",
             "nodes": []
           }
         ],
@@ -1323,7 +1311,6 @@
           }
         }
       ],
-      "corrections": [],
       "reportedResults": {
         "text": "하드코어 당시 시세로 100개 지도·약 7시간에 신성한 오브 665개 상당, 헤드헌터를 제외하면 545개 상당을 제시한다. 순이익 여부는 불명확하다.",
         "netProfitPerHour": null,
@@ -1345,7 +1332,6 @@
     {
       "id": "tablet-drop",
       "name": "서판 수집 파밍",
-      "kind": "map",
       "sourceVideoId": "rgrR5ty_O9Q",
       "goals": [
         "서판",
@@ -1577,7 +1563,7 @@
       ],
       "constraints": [
         {
-          "text": "일반 탐험 지도 순회와 대탐험 고투자 파밍을 별도 전략으로 관리한다.",
+          "text": "이 세팅은 일반 탐험 순회용이다. 대탐험의 고투자 서판·환경 조건을 그대로 적용하지 않는다.",
           "evidence": {
             "videoId": "rgrR5ty_O9Q",
             "startSeconds": 774,
@@ -1585,9 +1571,8 @@
           }
         }
       ],
-      "corrections": [],
       "reportedResults": {
-        "text": "현재 시세로 환산할 수 있는 통일된 순수익 표본은 확보하지 못했다.",
+        "text": "판매 완료 금액과 소요 시간을 함께 기록한 수익 표본은 미확인이다.",
         "netProfitPerHour": null,
         "evidence": []
       },
@@ -1599,7 +1584,6 @@
     {
       "id": "cleansed-fracturing",
       "name": "정화된 지역 분열의 오브 파밍",
-      "kind": "map",
       "sourceVideoId": "EdOOPRJIoQ4",
       "goals": [
         "분열의 오브",
@@ -1753,7 +1737,7 @@
           }
         ],
         "notes": [
-          "등급과 전체 속성 개수는 자막에서 명시하지 않는다."
+          "경로석 등급과 전체 속성 수의 기준은 미확인이다."
         ],
         "evidence": [
           {
@@ -1901,11 +1885,10 @@
           }
         }
       ],
-      "corrections": [],
       "reportedResults": {
         "sampleMaps": 10,
         "fracturingOrbs": 9,
-        "text": "10개 지도에서 분열의 오브 9개. 당시 개당 신성한 오브 10개 이상으로 계산한다. 제목의 시간당 수익은 비용·시간 산정 전체를 검증하지 못했으므로 순이익 필드에 넣지 않는다.",
+        "text": "영상 사례: 지도 10개에서 분열의 오브 9개. 당시 개당 신성한 오브 10개 이상으로 계산한 값이며, 총비용과 소요 시간이 불명확해 시간당 순이익으로 비교할 수 없다.",
         "netProfitPerHour": null,
         "evidence": [
           {
@@ -1923,96 +1906,8 @@
       "unresolved": [
         "경로석 등급·전체 속성 수",
         "전체 아틀라스 연결 경로",
-        "힐다의 네 가지 최종 선택: 화면에 보이는 배분과 음성의 추천 대안이 완전히 일치하지 않아 4개 확정 세팅으로 제공하지 않음",
-        "야생림 도깨비불의 종류별 공식 한국어 명칭 대조가 끝나지 않아 영상의 세부 수집 우선순위는 미수록"
-      ]
-    },
-    {
-      "id": "tablet-crafting-sale",
-      "name": "서판 제작·판매",
-      "kind": "crafting",
-      "sourceVideoId": "rgrR5ty_O9Q",
-      "goals": [
-        "유효 속성 서판 판매"
-      ],
-      "investment": "variable",
-      "party": "해당 없음",
-      "patch": "0.5.5",
-      "summary": "일반·마법 서판의 속성을 선별한 뒤 가치가 있는 것만 희귀 등급 제작을 이어간다.",
-      "tablets": {
-        "items": [],
-        "notes": [
-          "여러 종류의 일반·마법 서판을 제작 재료로 사용한다. 지도에 넣는 서판 조합을 뜻하지 않는다."
-        ],
-        "evidence": [
-          {
-            "videoId": "rgrR5ty_O9Q",
-            "startSeconds": 362,
-            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=362s"
-          }
-        ]
-      },
-      "waystone": null,
-      "map": null,
-      "atlas": null,
-      "masters": null,
-      "supplies": [
-        "진화의 오브",
-        "확장의 오브",
-        "제왕의 오브",
-        "엑잘티드 오브",
-        "연금술의 오브",
-        "카오스 오브",
-        "신성한 오브"
-      ],
-      "steps": [
-        "일반 서판에 진화의 오브와 확장의 오브를 사용해 유효 속성을 확인한다.",
-        "좋은 속성이 있으면 제왕의 오브와 엑잘티드 오브로 추가 속성을 붙인다.",
-        "가치가 낮으면 연금술의 오브를 사용하는 경로 또는 재련 작업대의 3개 교환을 검토한다.",
-        "자본을 더 쓸 경우 카오스 오브 반복 제작을 고려하되 이미 붙은 좋은 속성도 바뀔 수 있음을 반영한다.",
-        "신성한 오브로 수치를 높이는 작업은 판매가 차이가 추가 비용보다 클 때만 검토한다."
-      ],
-      "executionEvidence": [
-        {
-          "videoId": "rgrR5ty_O9Q",
-          "startSeconds": 362,
-          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=362s"
-        }
-      ],
-      "constraints": [
-        {
-          "text": "표시된 판매 희망가와 실제 거래 완료 가격을 구분하고, 제작비·미판매 재고를 함께 계산해야 한다.",
-          "evidence": {
-            "videoId": "rgrR5ty_O9Q",
-            "startSeconds": 362,
-            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=362s"
-          }
-        }
-      ],
-      "corrections": [
-        {
-          "text": "영상 설명란은 2:14의 통달한 영토 관련 설명에서 가치 있는 환경을 풀에서 숲으로 정정한다. PoEDB에서 통달한 영토 명칭과 환경별 변형을 확인했다.",
-          "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q",
-          "supersedes": {
-            "videoId": "rgrR5ty_O9Q",
-            "startSeconds": 134,
-            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=134s"
-          }
-        }
-      ],
-      "reportedResults": {
-        "text": "영상의 가격 예시는 2026-09-17 당시 설명이며 현재 판매가나 수익 보장으로 사용하지 않는다.",
-        "netProfitPerHour": null,
-        "evidence": [
-          {
-            "videoId": "rgrR5ty_O9Q",
-            "startSeconds": 96,
-            "url": "https://www.youtube.com/watch?v=rgrR5ty_O9Q&t=96s"
-          }
-        ]
-      },
-      "unresolved": [
-        "각 서판 속성의 현재 거래 완료 가격"
+        "힐다의 최종 능력 조합: 화면 배분과 음성 추천에 차이가 있음",
+        "야생림 도깨비불의 종류별 수집 우선순위"
       ]
     }
   ],
@@ -2134,7 +2029,6 @@
   ],
   "suggestedFilters": [
     "목적",
-    "지도 파밍/제작·판매",
     "영상 패치",
     "재검증 필요",
     "서판 종류",

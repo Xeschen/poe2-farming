@@ -1,0 +1,37 @@
+import {createRequire} from 'node:module';
+import {readFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import {blankRecord, STORAGE_KEY, FORMAT} from '../src/model.js';
+const require = createRequire(import.meta.url);
+const {chromium} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const browser = await chromium.launch({headless:true,...(process.env.BROWSER_PATH ? {executablePath:process.env.BROWSER_PATH}:{})});
+const root = process.env.APP_URL || 'http://127.0.0.1:4173/';
+const kept = blankRecord(); kept.method.kind='map'; kept.method.name='보존할 파밍법'; kept.method.notes='개인 메모 보존';
+kept.method.corrections = [{text:'내 파밍법의 주의사항',url:'https://www.youtube.com/watch?v=Mi3d9GtgwkI&lc=comment'}];
+const removed = blankRecord(); removed.method.kind='crafting'; removed.method.id='tablet-crafting-sale'; removed.method.name='제외할 제작 기록';
+const raw = JSON.stringify({format:FORMAT,schemaVersion:3,records:[kept,removed]});
+const page = await browser.newPage(); const errors=[]; page.on('pageerror',e=>errors.push(e.message));
+try {
+  await page.addInitScript(({key,raw})=>{if(!localStorage.getItem(key))localStorage.setItem(key,raw);},{key:STORAGE_KEY,raw});
+  await page.goto(new URL('?view=library&scope=personal',root).href);
+  await page.getByRole('heading',{name:'보존할 파밍법',exact:true}).waitFor();
+  assert.equal(await page.locator('#content .browse-card').count(),1);
+  assert.doesNotMatch(await page.locator('#content').innerText(),/제외할 제작 기록/);
+  const saved = await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),STORAGE_KEY);
+  assert.equal(saved.schemaVersion,6); assert.equal(saved.records.length,1); assert.equal(saved.records[0].method.notes,'개인 메모 보존');
+  assert.equal('kind' in saved.records[0].method,false);
+  assert.equal('corrections' in saved.records[0].method,false);
+  assert.deepEqual(saved.records[0].method.constraints,[{text:kept.method.corrections[0].text,evidence:null,sourceUrl:kept.method.corrections[0].url}]);
+  await page.locator('#import').click();
+  await page.locator('#backup-file').setInputFiles({name:'legacy.json',mimeType:'application/json',buffer:Buffer.from(raw)});
+  await page.getByText(/제외된 기록 1개/).waitFor();
+  await page.locator('#confirm-import').click();
+  await page.getByRole('heading',{name:'보존할 파밍법',exact:true}).waitFor();
+  const download = page.waitForEvent('download'); await page.locator('#export').click();
+  const exported = JSON.parse(await readFile(await (await download).path(),'utf8'));
+  assert.deepEqual(exported,saved);
+  await page.reload(); await page.getByRole('heading',{name:'보존할 파밍법',exact:true}).waitFor();
+  assert.deepEqual(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),STORAGE_KEY),saved);
+  assert.deepEqual(errors,[]);
+  console.log('PASS: legacy cleanup persists, import excludes retired records, export contains only current records, reload is idempotent');
+} finally {await browser.close();}

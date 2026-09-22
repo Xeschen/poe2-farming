@@ -1,0 +1,1238 @@
+{
+  "schemaVersion": "0.2.0",
+  "extractedAt": "2026-09-21",
+  "language": "ko",
+  "status": "structured_draft",
+  "selectionPolicy": {
+    "languages": [
+      "en",
+      "ko"
+    ],
+    "minimumViews": 10000,
+    "checkedAt": "2026-09-21",
+    "note": "조회수는 공개 노출의 선별 기준이며 내용의 정확성·수익·현재 유효성을 보증하지 않는다. 복수 영상을 조사하고, 0.5.5 영상에서 소개한 5개 구성은 같은 제작자의 연결 가이드로 대조했다."
+  },
+  "sources": [
+    {
+      "id": "2IvZ4D9b5bs",
+      "creator": "Fubgun",
+      "titleKo": "0.5.5 주요 파밍법 정리",
+      "titleOriginal": "Going over The Best Currency Farms in 0.5.5 - Patch of Exile 2",
+      "publishedAt": "2026-09-08",
+      "patch": "0.5.5",
+      "patchEvidence": "원본 제목에 0.5.5 명시",
+      "language": "en",
+      "url": "https://www.youtube.com/watch?v=2IvZ4D9b5bs",
+      "audience": {
+        "views": 142501,
+        "checkedAt": "2026-09-21",
+        "basis": "YouTube 원본 영상 페이지의 공개 viewCount 확인"
+      },
+      "reviewNote": "0.5.5 파밍 개요. 심연 징조는 3:07, 입문 심연 화폐는 5:51, 균열 서판 하향 설명은 5:08부터다. 세부 구매 조건은 연결된 제작자 가이드를 기준으로 한다."
+    },
+    {
+      "id": "d520vnC93Yo",
+      "creator": "Fubgun",
+      "titleKo": "심연·탈주 유배자 상세 가이드",
+      "titleOriginal": "One of the Best Farms in 0.5 - Abyss & Rogue Exiles Full Guide | Path of Exile 2",
+      "publishedAt": "2026-06-03",
+      "patch": "0.5",
+      "patchEvidence": "원본 제목",
+      "language": "en",
+      "url": "https://www.youtube.com/watch?v=d520vnC93Yo",
+      "audience": {
+        "views": 179893,
+        "checkedAt": "2026-09-21",
+        "basis": "원본 영상 페이지 공개 viewCount 확인"
+      },
+      "reviewNote": "0.5 초기의 심연·탈주 유배자 가이드. 진영별 처치 조건은 5:14~6:34를 참고한다. 서판 조합은 0.5.5 연결 가이드와 차이가 있으므로 서로 다른 구성을 섞지 않는다."
+    },
+    {
+      "id": "tRlH7v8_r4c",
+      "creator": "Fubgun",
+      "titleKo": "균열 희귀 몬스터 상세 가이드",
+      "titleOriginal": "Breach is PRINTING Divine Orbs in 0.5 | Full Breach Guide - Path of Exile 2",
+      "publishedAt": "2026-06-09",
+      "patch": "0.5",
+      "patchEvidence": "원본 제목",
+      "language": "en",
+      "url": "https://www.youtube.com/watch?v=tRlH7v8_r4c",
+      "audience": {
+        "views": 139643,
+        "checkedAt": "2026-09-21",
+        "basis": "원본 영상 페이지 공개 viewCount 확인"
+      },
+      "reviewNote": "0.5 기준의 균열 가이드. 일반 서판의 추가 희귀 몬스터 최대 수는 0.5.5에서 3마리에서 2마리로 줄었다. 대가 효과와 수익 사례도 출처 패치 기준이다."
+    },
+    {
+      "id": "UfJflMmJ1BM",
+      "creator": "ronarray",
+      "titleKo": "보스 순회 파밍 가이드",
+      "titleOriginal": "[PoE 2] RUSH Farm PRINTS Currency! - Full Farming Strategy Guide + Atlas Tree - Path of Exile 2",
+      "publishedAt": "2026-06-09",
+      "patch": "0.5",
+      "patchEvidence": "영상 설명란 챕터의 0.5 표기",
+      "language": "en",
+      "url": "https://www.youtube.com/watch?v=UfJflMmJ1BM",
+      "audience": {
+        "views": 90093,
+        "checkedAt": "2026-09-21",
+        "basis": "원본 영상 페이지 공개 viewCount 확인"
+      },
+      "reviewNote": "0.5 기준의 보스 순회 가이드. 일반 이동 지도와 목표 보스 지도에서 투입 조건과 대가가 달라진다. Fubgun의 서판 3개 구성과는 별도 방식이다."
+    },
+    {
+      "id": "CRL7ZBdw37U",
+      "creator": "TheMidTierGamer",
+      "titleKo": "웅장한 거울 없이 빛의 징조 파밍",
+      "titleOriginal": "The Easiest Omen of Light Farm in POE 2 Patch 0.5",
+      "publishedAt": "2026-08-04",
+      "patch": "0.5",
+      "patchEvidence": "원본 제목",
+      "language": "en",
+      "url": "https://www.youtube.com/watch?v=CRL7ZBdw37U",
+      "audience": {
+        "views": 47687,
+        "checkedAt": "2026-09-21",
+        "basis": "원본 영상 페이지 공개 viewCount 확인"
+      },
+      "reviewNote": "0.5 기준의 환영 200% 없는 대안이다. 서판과 지도 조건이 자도 구성과 다르다. 수익 설명의 표본 수가 0:55에는 50지도, 10:01에는 40지도로 달라 수익 비교에는 주의가 필요하다."
+    }
+  ],
+  "strategies": [
+    {
+      "id": "abyss-currency",
+      "name": "심연 화폐 파밍",
+      "content": [
+        "심연"
+      ],
+      "sourceVideoId": "2IvZ4D9b5bs",
+      "goals": [
+        "화폐",
+        "우물의 심장"
+      ],
+      "investment": "unknown",
+      "budget": {
+        "amount": null,
+        "currency": "엑잘티드 오브"
+      },
+      "party": "미확인",
+      "patch": "0.5.5",
+      "summary": "심연 구덩이의 화폐 보상과 탈주 유배자의 우물의 심장을 노리는 입문 구성이다.",
+      "tablets": {
+        "usage": "use",
+        "items": [
+          {
+            "name": "심연 서판",
+            "count": 1,
+            "remainingUses": null,
+            "status": "required",
+            "options": [
+              {
+                "modifierId": "tablet-c2c2379307924a55",
+                "text": "지도 내 심연 구덩이에서 보상을 제공할 확률 2배",
+                "priority": "required",
+                "metric": null,
+                "min": null,
+                "unit": null
+              }
+            ]
+          },
+          {
+            "name": "심연 서판",
+            "count": 1,
+            "remainingUses": null,
+            "status": "required",
+            "options": [
+              {
+                "modifierId": "tablet-4a776318d9e2384b",
+                "text": "지도에 (20—40)% 확률로 심연 4개 추가 등장",
+                "priority": "required",
+                "metric": null,
+                "min": null,
+                "unit": "%"
+              }
+            ]
+          },
+          {
+            "name": "심연 서판",
+            "count": 1,
+            "remainingUses": null,
+            "status": "required",
+            "options": [],
+            "optionRequirement": "unrestricted"
+          }
+        ],
+        "notes": [
+          "세 번째 심연 서판은 속성 제한이 없다. 감독관 서판으로 교체하는 대안은 대군주의 영토에서 탈주 유배자 1명을 선택하여 강한 지도 보스를 활용하는 조합이다. 두 대안을 동시에 넣지 않는다.",
+          "아이템 희귀도 증가를 부가 조건으로 권장한다. 최소 수치 기준은 미확인이다."
+        ],
+        "evidence": []
+      },
+      "waystone": {
+        "tier": null,
+        "affixCount": null,
+        "corrupted": null,
+        "options": [],
+        "notes": [],
+        "evidence": []
+      },
+      "map": {
+        "regions": [],
+        "biomes": [],
+        "conditions": [],
+        "optional": [],
+        "evidence": []
+      },
+      "atlas": {
+        "nodes": [
+          {
+            "name": "힘의 균형",
+            "choice": "울라만",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/Balance_of_Power"
+          },
+          {
+            "name": "끔찍한 보물",
+            "choice": "징조",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/Vile_Treasures"
+          },
+          {
+            "name": "구덩이의 군주",
+            "choice": "심연 구덩이가 심연이 있는 지역 전체에 흩어짐",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/Lord_of_the_Pit"
+          },
+          {
+            "name": "대군주의 영토",
+            "choice": "탈주 유배자 1명",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/Overlords_Domain"
+          },
+          {
+            "name": "선택받은 길",
+            "choice": "탈주 유배자",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/The_Chosen_Path"
+          }
+        ],
+        "fullTreeVerified": false,
+        "evidence": [
+          {
+            "videoId": "d520vnC93Yo",
+            "startSeconds": 117,
+            "url": "https://www.youtube.com/watch?v=d520vnC93Yo&t=117s"
+          },
+          {
+            "videoId": "d520vnC93Yo",
+            "startSeconds": 177,
+            "url": "https://www.youtube.com/watch?v=d520vnC93Yo&t=177s"
+          },
+          {
+            "videoId": "d520vnC93Yo",
+            "startSeconds": 314,
+            "url": "https://www.youtube.com/watch?v=d520vnC93Yo&t=314s"
+          }
+        ],
+        "otherPriorities": [
+          "화폐와 탈주 유배자를 노리는 선택은 0.5 가이드 기준이다. 아마나무를 고르는 징조 파밍과 선택 조건이 다르다."
+        ]
+      },
+      "masters": {
+        "choices": [
+          {
+            "name": "자도",
+            "role": "뜻밖의 임무는 선택 사항이다. 나머지 능력을 포함한 전체 조합은 미확인이다.",
+            "nodes": [
+              {
+                "name": "부분적인 해독",
+                "choice": null,
+                "basis": "creator_guide",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              },
+              {
+                "name": "예기치 못한 위협",
+                "choice": null,
+                "basis": "creator_guide",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              }
+            ]
+          }
+        ],
+        "fullSetupVerified": false,
+        "evidence": []
+      },
+      "supplies": [
+        "보상 확률 2배와 심연 4개 추가 등장 확률을 나누어 갖춘 심연 서판 3개",
+        "캐릭터가 감당할 수 있는 경로석; 고정 등급과 속성 수는 미확인"
+      ],
+      "steps": [
+        "심연 서판 3개를 준비한다. 감독관 서판으로 교체할 때는 대군주의 영토의 선택도 함께 맞춘다.",
+        "심연 구덩이와 탈주 유배자를 처치하고 보상을 회수한다. 유배자를 구덩이로 유도해도 보상이 보장되지는 않는다.",
+        "지도 보스를 처치한 뒤 다음 지도로 이동한다. 획득한 화폐와 미판매 주얼을 구분하여 기록한다."
+      ],
+      "executionEvidence": [
+        {
+          "videoId": "2IvZ4D9b5bs",
+          "startSeconds": 351,
+          "url": "https://www.youtube.com/watch?v=2IvZ4D9b5bs&t=351s"
+        },
+        {
+          "videoId": "d520vnC93Yo",
+          "startSeconds": 533,
+          "url": "https://www.youtube.com/watch?v=d520vnC93Yo&t=533s"
+        }
+      ],
+      "constraints": [
+        {
+          "text": "우물의 심장 획득량에는 편차가 크다. 0.5.5 영상의 드롭 감소 언급은 제작자의 체감이며, 드롭률 하향이 확정된 것은 아니다.",
+          "evidence": {
+            "videoId": "2IvZ4D9b5bs",
+            "startSeconds": 351,
+            "url": "https://www.youtube.com/watch?v=2IvZ4D9b5bs&t=351s"
+          }
+        }
+      ],
+      "reportedResults": {
+        "text": "시간당 수익과 순이익은 미확인이다.",
+        "netProfitPerHour": null,
+        "evidence": []
+      },
+      "unresolved": [
+        "현재 리그 실전 재현과 시간당 순이익 미검증",
+        "전체 아틀라스 연결 경로와 대가의 전체 능력 구성 미확인",
+        "지도 1회당 투자 금액 미확인"
+      ],
+      "notes": "",
+      "stopConditions": [
+        "반복해서 사망하거나 소모품 비용을 회수하기 어렵다면 투입을 줄이고 세팅을 조정한다."
+      ],
+      "creatorGuide": {
+        "url": "https://mobalytics.gg/poe-2/atlas-trees/fubgun-atlas-tree-strats",
+        "section": "Currency Abyss",
+        "checkedAt": "2026-09-22",
+        "note": "0.5.5 영상에 연결된 세부 세팅 가이드. 문서의 갱신일 표시는 2026-09-10이며, 해당 구성의 구매 조건을 참고할 수 있다."
+      },
+      "evidenceReview": {
+        "checkedAt": "2026-09-22",
+        "scope": "전체 자막 · 제작자 문서 대조",
+        "note": "0.5.5 영상과 연결 가이드 기준. 보조 영상은 0.5 자료이며 세팅에 차이가 있다. 전체 아틀라스 경로와 실전 수익은 미검증이다."
+      },
+      "supportingVideoIds": [
+        "d520vnC93Yo"
+      ]
+    },
+    {
+      "id": "abyss-rare-equipment",
+      "name": "심연 빛의 징조 파밍",
+      "content": [
+        "심연",
+        "환영"
+      ],
+      "sourceVideoId": "2IvZ4D9b5bs",
+      "goals": [
+        "빛의 징조",
+        "심연의 메아리의 징조",
+        "화폐"
+      ],
+      "investment": "unknown",
+      "budget": {
+        "amount": null,
+        "currency": "엑잘티드 오브"
+      },
+      "party": "미확인",
+      "patch": "0.5.5",
+      "summary": "자도로 심연의 희귀 몬스터를 강화해 빛의 징조를 노린다. 서판 구매 비용을 줄이고 싶다면 힐다 대안을 살펴본다.",
+      "tablets": {
+        "usage": "use",
+        "items": [
+          {
+            "name": "심연 서판",
+            "count": 1,
+            "remainingUses": null,
+            "status": "required",
+            "options": [
+              {
+                "modifierId": "tablet-6b027bbbc3a8ff88",
+                "text": "지도에 무작위 속성 부여 2개 추가",
+                "priority": "required",
+                "metric": "additionalMapModifiers",
+                "min": 2,
+                "unit": null
+              },
+              {
+                "modifierId": "tablet-b01965d51253a607",
+                "text": "닫은 구덩이 하나당 심연 몬스터의 효율 (8—12)%씩, 최대 100%까지 증가",
+                "priority": "required",
+                "metric": null,
+                "min": null,
+                "unit": "%"
+              },
+              {
+                "modifierId": "tablet-3664087d7c1ce97e",
+                "text": "지도에 희귀 몬스터 수 (25—35)% 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": "%"
+              }
+            ]
+          },
+          {
+            "name": "심연 서판",
+            "count": 1,
+            "remainingUses": null,
+            "status": "required",
+            "options": [
+              {
+                "modifierId": "tablet-6b027bbbc3a8ff88",
+                "text": "지도에 무작위 속성 부여 2개 추가",
+                "priority": "required",
+                "metric": "additionalMapModifiers",
+                "min": 2,
+                "unit": null
+              },
+              {
+                "modifierId": "tablet-4a776318d9e2384b",
+                "text": "지도에 (20—40)% 확률로 심연 4개 추가 등장",
+                "priority": "required",
+                "metric": null,
+                "min": null,
+                "unit": "%"
+              },
+              {
+                "modifierId": "tablet-3664087d7c1ce97e",
+                "text": "지도에 희귀 몬스터 수 (25—35)% 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": "%"
+              }
+            ]
+          },
+          {
+            "name": "심연 서판",
+            "count": 1,
+            "remainingUses": null,
+            "status": "required",
+            "options": [
+              {
+                "modifierId": "tablet-6b027bbbc3a8ff88",
+                "text": "지도에 무작위 속성 부여 2개 추가",
+                "priority": "required",
+                "metric": "additionalMapModifiers",
+                "min": 2,
+                "unit": null
+              },
+              {
+                "modifierId": "tablet-0c38ce5532244291",
+                "text": "지도 내 심연 몬스터가 심연 속성을 보유할 확률 (20—30)% 증가",
+                "priority": "required",
+                "metric": null,
+                "min": null,
+                "unit": "%"
+              },
+              {
+                "modifierId": "tablet-3664087d7c1ce97e",
+                "text": "지도에 희귀 몬스터 수 (25—35)% 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": "%"
+              }
+            ]
+          },
+          {
+            "name": "심연 서판",
+            "count": 1,
+            "remainingUses": null,
+            "status": "required",
+            "options": [
+              {
+                "modifierId": "tablet-6b027bbbc3a8ff88",
+                "text": "지도에 무작위 속성 부여 2개 추가",
+                "priority": "required",
+                "metric": "additionalMapModifiers",
+                "min": 2,
+                "unit": null
+              },
+              {
+                "modifierId": "tablet-3664087d7c1ce97e",
+                "text": "지도에 희귀 몬스터 수 (25—35)% 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": "%"
+              }
+            ]
+          }
+        ],
+        "notes": [
+          "네 장의 서판은 구매 조합 예시다. 각 심연 전용 조건을 조합 전체에서 한 번 이상 확보하면 되며, 같은 전용 조건을 모든 서판에 붙일 필요는 없다.",
+          "서판마다 속성 세 개 이상을 권장한다. 네 번째 장의 남은 조건은 무리 규모·몬스터 희귀도·아이템 희귀도 등 예산에 맞춰 선택한다.",
+          "힐다를 선택하면 서판 종류와 능력 구성도 함께 바꿔야 한다.",
+          "0.5.5 영상 3:14에서는 더 저렴하게 서판을 구할 수 있는 힐다 대안을 추천한다. 힐다 대안은 심연·방사능 노출·감독관·균열을 각각 1개씩 쓰고 교배철·고대 명문을 고르는 별도 구성이다. 현재의 자도 세팅에 대가만 교체하지 않는다."
+        ],
+        "evidence": []
+      },
+      "waystone": {
+        "tier": 15,
+        "affixCount": null,
+        "corrupted": true,
+        "options": [],
+        "notes": [
+          "6개 속성 경로석을 만든 후 타락시킨다. 8개 속성을 우선하되, 조건이 좋은 6개 속성 경로석도 사용할 수 있다.",
+          "15등급을 기본으로 사용하며, 16등급도 사용할 수 있다."
+        ],
+        "evidence": []
+      },
+      "map": {
+        "regions": [],
+        "biomes": [
+          "도시"
+        ],
+        "conditions": [
+          "서판 4개를 사용할 수 있는 도시 지도",
+          "웅장한 거울로 환영 200%를 적용하는 제작자 구성"
+        ],
+        "optional": [],
+        "evidence": []
+      },
+      "atlas": {
+        "nodes": [
+          {
+            "name": "힘의 균형",
+            "choice": "아마나무",
+            "basis": "creator_guide",
+            "poedbUrl": "https://poe2db.tw/kr/Balance_of_Power"
+          },
+          {
+            "name": "끔찍한 보물",
+            "choice": "징조",
+            "basis": "creator_guide",
+            "poedbUrl": "https://poe2db.tw/kr/Vile_Treasures"
+          }
+        ],
+        "fullTreeVerified": false,
+        "evidence": [
+          {
+            "videoId": "d520vnC93Yo",
+            "startSeconds": 177,
+            "url": "https://www.youtube.com/watch?v=d520vnC93Yo&t=177s"
+          }
+        ],
+        "otherPriorities": [
+          "네 번째 서판을 사용하려면 산업의 진보와 75레벨 이상 도시 지역 조건을 갖춘다."
+        ]
+      },
+      "masters": {
+        "choices": [
+          {
+            "name": "자도",
+            "role": "아래 능력을 기준으로 구성한다. 나머지 능력을 포함한 전체 조합은 미확인이다.",
+            "nodes": [
+              {
+                "name": "뜻밖의 임무",
+                "choice": null,
+                "basis": "creator_guide",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              },
+              {
+                "name": "예기치 못한 위협",
+                "choice": null,
+                "basis": "creator_guide",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              },
+              {
+                "name": "부분적인 해독",
+                "choice": null,
+                "basis": "creator_guide",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              }
+            ]
+          }
+        ],
+        "fullSetupVerified": false,
+        "evidence": []
+      },
+      "supplies": [
+        "전용 조건을 나누어 가진 심연 서판 4개",
+        "타락한 15등급 경로석",
+        "환영 200% 지도를 감당할 수 있는 캐릭터"
+      ],
+      "steps": [
+        "도시 지도와 서판 네 자리 사용 조건을 확인한다.",
+        "각 서판의 무작위 지도 속성 추가 수가 2인지 확인하고, 심연 전용 세 조건을 조합 전체에 분산한다.",
+        "웅장한 거울을 활용한 환영 200% 지도에서 심연 구덩이를 순차적으로 닫으며 진행한다.",
+        "아마나무의 희귀 몬스터는 구덩이에서 나온 직후 처치하거나 어두운 구름 밖으로 유도한 뒤 처치한다. 구름 안에서 처치하면 보상 조건이 달라진다.",
+        "심연 지하가 열리면 내부 몬스터를 모두 처치하고 끝까지 진행한다. 빛의 징조·화폐와 미판매 아이템은 구분해 기록한다."
+      ],
+      "executionEvidence": [
+        {
+          "videoId": "2IvZ4D9b5bs",
+          "startSeconds": 186,
+          "url": "https://www.youtube.com/watch?v=2IvZ4D9b5bs&t=186s"
+        },
+        {
+          "videoId": "d520vnC93Yo",
+          "startSeconds": 348,
+          "url": "https://www.youtube.com/watch?v=d520vnC93Yo&t=348s"
+        },
+        {
+          "videoId": "CRL7ZBdw37U",
+          "startSeconds": 146,
+          "url": "https://www.youtube.com/watch?v=CRL7ZBdw37U&t=146s"
+        }
+      ],
+      "constraints": [
+        {
+          "text": "추가 지도 속성과 환영 200%가 겹쳐 전투 난도가 높다. 캐릭터가 감당할 수 있는지 확인한 뒤 투입한다.",
+          "evidence": null
+        },
+        {
+          "text": "환영 200% 없는 TheMidTierGamer의 0.5 대안은 서판과 지도 조건이 다르다. 해당 수익 사례는 표본 수가 40지도와 50지도로 혼재해 직접 비교하기 어렵다.",
+          "evidence": {
+            "videoId": "CRL7ZBdw37U",
+            "startSeconds": 55,
+            "url": "https://www.youtube.com/watch?v=CRL7ZBdw37U&t=55s"
+          }
+        }
+      ],
+      "reportedResults": {
+        "text": "시간당 수익과 순이익은 미확인이다.",
+        "netProfitPerHour": null,
+        "evidence": []
+      },
+      "unresolved": [
+        "현재 리그 실전 재현과 시간당 순이익 미검증",
+        "전체 아틀라스 연결 경로와 대가의 전체 능력 구성 미확인",
+        "지도 1회당 투자 금액 미확인"
+      ],
+      "notes": "",
+      "stopConditions": [
+        "반복해서 사망하거나 소모품 비용을 회수하기 어렵다면 투입을 줄이고 세팅을 조정한다."
+      ],
+      "creatorGuide": {
+        "url": "https://mobalytics.gg/poe-2/atlas-trees/fubgun-atlas-tree-strats",
+        "section": "Abyss Rares · 1st Strat: Jado abyss",
+        "checkedAt": "2026-09-22",
+        "note": "0.5.5 영상에 연결된 세부 세팅 가이드. 문서의 갱신일 표시는 2026-09-10이며, 해당 구성의 구매 조건을 참고할 수 있다."
+      },
+      "evidenceReview": {
+        "checkedAt": "2026-09-22",
+        "scope": "전체 자막 · 제작자 문서 대조",
+        "note": "0.5.5 영상과 연결 가이드 기준. 보조 영상은 0.5 자료이며 세팅에 차이가 있다. 전체 아틀라스 경로와 실전 수익은 미검증이다."
+      },
+      "supportingVideoIds": [
+        "d520vnC93Yo",
+        "CRL7ZBdw37U"
+      ]
+    },
+    {
+      "id": "breach-rare-equipment",
+      "name": "균열 희귀 몬스터 파밍",
+      "content": [
+        "균열",
+        "환영"
+      ],
+      "sourceVideoId": "2IvZ4D9b5bs",
+      "goals": [
+        "화폐",
+        "고유 아이템",
+        "희귀 아이템"
+      ],
+      "investment": "unknown",
+      "budget": {
+        "amount": null,
+        "currency": "엑잘티드 오브"
+      },
+      "party": "미확인",
+      "patch": "0.5.5",
+      "summary": "도시 지도에서 균열 서판 세 장과 포위당한 레이클라스트 한 장을 사용해 안정화 후 등장하는 희귀 몬스터를 노린다.",
+      "tablets": {
+        "usage": "use",
+        "items": [
+          {
+            "name": "균열 서판",
+            "count": 3,
+            "remainingUses": null,
+            "status": "required",
+            "options": [
+              {
+                "modifierId": "tablet-d4f7a91a646459cf",
+                "text": "지도 내 불안정한 균열이 안정화되면 희귀 몬스터 2마리를 추가로 생성함",
+                "priority": "required",
+                "metric": null,
+                "min": 2,
+                "unit": null
+              },
+              {
+                "modifierId": "tablet-d0df210d186ce89a",
+                "text": "몬스터의 효율 (10—15)% 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": "%"
+              },
+              {
+                "modifierId": "tablet-64f1c8c2bf153ae1",
+                "text": "지도 내 희귀 균열 몬스터의 효율 (5—20)% 증가",
+                "priority": "optional",
+                "metric": null,
+                "min": null,
+                "unit": "%"
+              },
+              {
+                "modifierId": "tablet-4c4265118f909ec3",
+                "text": "지도에서 발견하는 아이템 희귀도 (8—12)% 증가",
+                "priority": "optional",
+                "metric": "itemRarity",
+                "min": null,
+                "unit": "%"
+              }
+            ]
+          },
+          {
+            "name": "포위당한 레이클라스트",
+            "count": 1,
+            "remainingUses": null,
+            "status": "required",
+            "options": []
+          }
+        ],
+        "notes": [
+          "0.5.5 기준으로 안정화 후 희귀 몬스터를 2마리 추가하는 균열 서판을 구한다. 이전 0.5 가이드의 최대 3마리 조건은 더 이상 적용되지 않는다.",
+          "몬스터 효율·희귀 균열 몬스터 효율·아이템 희귀도 중 두 가지를 권장한다. 하나만 고르면 몬스터 효율을 우선한다. 거래소 검색에서는 원하는 선택 조건을 직접 켠다.",
+          "포위당한 레이클라스트는 추가 희귀 몬스터 5마리와 무리 규모 감소가 없는 매물을 우선한다. 거래소 검색에는 고유 속성 수치가 자동으로 포함되지 않으므로 매물에서 직접 확인한다."
+        ],
+        "evidence": [
+          {
+            "videoId": "tRlH7v8_r4c",
+            "startSeconds": 121,
+            "url": "https://www.youtube.com/watch?v=tRlH7v8_r4c&t=121s"
+          },
+          {
+            "videoId": "2IvZ4D9b5bs",
+            "startSeconds": 308,
+            "url": "https://www.youtube.com/watch?v=2IvZ4D9b5bs&t=308s"
+          }
+        ]
+      },
+      "waystone": {
+        "tier": 15,
+        "affixCount": null,
+        "corrupted": null,
+        "options": [],
+        "notes": [
+          "6~8개 속성 경로석을 사용한다. 구매 시 원하는 속성 수를 선택한다.",
+          "0.5 가이드의 선호 예시: 아이템 희귀도 약 40~50%, 몬스터 효율 약 15~25%, 합계 약 60~65%. 더 낮은 수치도 사용할 수 있으며 필수 최소값은 아니다."
+        ],
+        "evidence": [
+          {
+            "videoId": "tRlH7v8_r4c",
+            "startSeconds": 396,
+            "url": "https://www.youtube.com/watch?v=tRlH7v8_r4c&t=396s"
+          }
+        ]
+      },
+      "map": {
+        "regions": [],
+        "biomes": [
+          "도시"
+        ],
+        "conditions": [
+          "서판 네 장 사용 조건을 충족하는 도시 지도",
+          "웅장한 거울을 활용한 환영 200% 지도"
+        ],
+        "optional": [],
+        "evidence": []
+      },
+      "atlas": {
+        "nodes": [
+          {
+            "name": "사슬 형성",
+            "choice": "희귀 균열 몬스터의 효율 30% 증가",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/Shape_the_Chains"
+          },
+          {
+            "name": "반복되는 악몽",
+            "choice": "환영 안개가 퍼져 나가는 지도 +4개",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/Recurring_Nightmares"
+          },
+          {
+            "name": "앞으로의 여정",
+            "choice": "지도 내 몬스터의 효율 15% 증가",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/The_Journey_Ahead"
+          },
+          {
+            "name": "에조미어인의 역사",
+            "choice": "풀",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/History_of_the_Ezomytes"
+          },
+          {
+            "name": "바알의 역사",
+            "choice": "숲",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/History_of_the_Vaal"
+          },
+          {
+            "name": "파리둔의 역사",
+            "choice": "사막",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/History_of_the_Faridun"
+          },
+          {
+            "name": "풀 숙련",
+            "choice": "몬스터의 효율 15% 증가",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/Grass_Mastery"
+          },
+          {
+            "name": "사막 숙련",
+            "choice": "몬스터의 효율 15% 증가",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/Desert_Mastery"
+          },
+          {
+            "name": "숲 숙련",
+            "choice": "희귀 몬스터 15% 증가",
+            "basis": "effect_matched",
+            "poedbUrl": "https://poe2db.tw/kr/Forest_Mastery"
+          }
+        ],
+        "fullTreeVerified": false,
+        "evidence": [
+          {
+            "videoId": "tRlH7v8_r4c",
+            "startSeconds": 319,
+            "url": "https://www.youtube.com/watch?v=tRlH7v8_r4c&t=319s"
+          },
+          {
+            "videoId": "tRlH7v8_r4c",
+            "startSeconds": 563,
+            "url": "https://www.youtube.com/watch?v=tRlH7v8_r4c&t=563s"
+          },
+          {
+            "videoId": "tRlH7v8_r4c",
+            "startSeconds": 591,
+            "url": "https://www.youtube.com/watch?v=tRlH7v8_r4c&t=591s"
+          }
+        ],
+        "otherPriorities": [
+          "네 번째 서판을 사용하려면 산업의 진보와 75레벨 이상 도시 지역 조건을 갖춘다.",
+          "도시별 환경 선택과 숙련은 해당 도시·환경에서 적용된다. 모든 지도가 풀·숲·사막을 동시에 가져야 한다는 조건이 아니다.",
+          "부상하는 숙적의 희귀 몬스터 효율과 속성 보유 확률 중 어느 쪽이 유리한지는 미확인이다."
+        ]
+      },
+      "masters": {
+        "choices": [
+          {
+            "name": "자도",
+            "role": "0.5 가이드의 자도 구성. 예리한 감정은 다른 능력으로 교체할 수 있다. 부분적인 해독의 발동 확률·배율은 과거 영상과 현재 패치에 차이가 있을 수 있다.",
+            "nodes": [
+              {
+                "name": "뜻밖의 임무",
+                "choice": null,
+                "basis": "creator_guide",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              },
+              {
+                "name": "예기치 못한 위협",
+                "choice": null,
+                "basis": "creator_guide",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              },
+              {
+                "name": "부분적인 해독",
+                "choice": null,
+                "basis": "creator_guide",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              },
+              {
+                "name": "예리한 감정",
+                "choice": null,
+                "basis": "effect_matched",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              }
+            ]
+          }
+        ],
+        "fullSetupVerified": false,
+        "evidence": [
+          {
+            "videoId": "tRlH7v8_r4c",
+            "startSeconds": 514,
+            "url": "https://www.youtube.com/watch?v=tRlH7v8_r4c&t=514s"
+          }
+        ]
+      },
+      "supplies": [
+        "일반 균열 서판 3개",
+        "포위당한 레이클라스트 1개",
+        "6~8개 속성의 15등급 경로석"
+      ],
+      "steps": [
+        "도시 지도와 서판 네 자리 사용 조건을 확인한다.",
+        "일반 균열 서판 세 장에 안정화 후 희귀 몬스터 추가 조건을 확보한다.",
+        "포위당한 레이클라스트의 희귀 몬스터 추가 수와 무리 규모 감소 여부를 확인한다.",
+        "환영 200% 구성에서 불안정한 균열을 안정화하고 등장한 희귀 몬스터의 아이템을 회수한다.",
+        "균열이 퍼지는 동안 가장자리 몬스터를 처치하고 중앙의 희귀 몬스터를 정리한다. 안정화 후 계속 머무르지 말고, 지도 보스를 처치한 뒤 다음 지도로 이동한다."
+      ],
+      "executionEvidence": [
+        {
+          "videoId": "2IvZ4D9b5bs",
+          "startSeconds": 308,
+          "url": "https://www.youtube.com/watch?v=2IvZ4D9b5bs&t=308s"
+        },
+        {
+          "videoId": "tRlH7v8_r4c",
+          "startSeconds": 477,
+          "url": "https://www.youtube.com/watch?v=tRlH7v8_r4c&t=477s"
+        }
+      ],
+      "constraints": [
+        {
+          "text": "0.5 상세 영상의 균열당 희귀 몬스터 수와 자도 발동 시 수익을 0.5.5에 그대로 적용하지 않는다. 특히 서판의 추가 희귀 몬스터 최대 수가 3에서 2로 줄었다.",
+          "evidence": {
+            "videoId": "2IvZ4D9b5bs",
+            "startSeconds": 308,
+            "url": "https://www.youtube.com/watch?v=2IvZ4D9b5bs&t=308s"
+          }
+        }
+      ],
+      "reportedResults": {
+        "text": "시간당 수익과 순이익은 미확인이다.",
+        "netProfitPerHour": null,
+        "evidence": []
+      },
+      "unresolved": [
+        "현재 리그 실전 재현과 시간당 순이익 미검증",
+        "전체 아틀라스 연결 경로와 대가의 전체 능력 구성 미확인",
+        "지도 1회당 투자 금액 미확인"
+      ],
+      "notes": "",
+      "stopConditions": [
+        "반복해서 사망하거나 소모품 비용을 회수하기 어렵다면 투입을 줄이고 세팅을 조정한다."
+      ],
+      "creatorGuide": {
+        "url": "https://mobalytics.gg/poe-2/atlas-trees/fubgun-atlas-tree-strats",
+        "section": "Breach Rares",
+        "checkedAt": "2026-09-22",
+        "note": "0.5.5 영상에 연결된 세부 세팅 가이드. 문서의 갱신일 표시는 2026-09-10이며, 해당 구성의 구매 조건을 참고할 수 있다."
+      },
+      "evidenceReview": {
+        "checkedAt": "2026-09-22",
+        "scope": "전체 자막 · 제작자 문서 대조",
+        "note": "0.5.5 영상과 연결 가이드 기준. 보조 영상은 0.5 자료이며 세팅에 차이가 있다. 전체 아틀라스 경로와 실전 수익은 미검증이다."
+      },
+      "supportingVideoIds": [
+        "tRlH7v8_r4c"
+      ]
+    },
+    {
+      "id": "delirium-rush",
+      "name": "환영 보스 순회 파밍",
+      "content": [
+        "환영"
+      ],
+      "sourceVideoId": "2IvZ4D9b5bs",
+      "goals": [
+        "복제된 영토 파편",
+        "화폐"
+      ],
+      "investment": "unknown",
+      "budget": {
+        "amount": null,
+        "currency": "엑잘티드 오브"
+      },
+      "party": "미확인",
+      "patch": "0.5.5",
+      "summary": "환영 서판 세 장으로 지도를 열고, 보스까지 이동하며 환영 보상을 진행한 뒤 보스를 처치하고 환영을 종료한다.",
+      "tablets": {
+        "usage": "use",
+        "items": [
+          {
+            "name": "환영 서판",
+            "count": 3,
+            "remainingUses": null,
+            "status": "required",
+            "options": [
+              {
+                "modifierId": "tablet-b5751864d0597b69",
+                "text": "지도에서 발견하는 복제된 영토 파편의 중첩 개수 (15—30)% 증가",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": "%"
+              },
+              {
+                "modifierId": "tablet-969b3612226d5812",
+                "text": "지도 내 환영 인카운터의 고유 보스 등장 확률 (15—30)% 증폭",
+                "priority": "recommended",
+                "metric": null,
+                "min": null,
+                "unit": "%"
+              },
+              {
+                "modifierId": "tablet-b99cb965cb2b12e3",
+                "text": "지도 내 환영 안개에서 생성되는 분열의 거울 (15—30)% 증가",
+                "priority": "optional",
+                "metric": null,
+                "min": null,
+                "unit": "%"
+              }
+            ]
+          }
+        ],
+        "notes": [
+          "특정 속성 없이 희귀 등급 서판으로 시작할 수 있다. 아래 속성은 보상을 늘리기 위한 권장·선택 조건이다.",
+          "분열의 거울 증가 조건의 효과는 불확실하므로 필수가 아니다."
+        ],
+        "evidence": []
+      },
+      "waystone": {
+        "tier": null,
+        "affixCount": 6,
+        "corrupted": null,
+        "options": [],
+        "notes": [
+          "서판 세 장을 쓰기 위한 6개 속성 경로석이며 특정 속성을 필수로 요구하지 않는다.",
+          "타락은 선택 사항이다. 타락 결과로 나온 16등급 경로석은 판매할 수 있다."
+        ],
+        "evidence": []
+      },
+      "map": {
+        "regions": [],
+        "biomes": [],
+        "conditions": [],
+        "optional": [
+          "도시와 이형 지도를 찾으며 진행하는 이동용 구성이다. 목표 보스 지도용 8속성·높은 경로석 출현 확률 조건은 일반 이동 지도에 필요하지 않다."
+        ],
+        "evidence": []
+      },
+      "atlas": {
+        "nodes": [],
+        "fullTreeVerified": false,
+        "evidence": []
+      },
+      "masters": {
+        "choices": [],
+        "fullSetupVerified": false,
+        "evidence": []
+      },
+      "supplies": [
+        "환영 서판 3개",
+        "6개 속성 경로석"
+      ],
+      "steps": [
+        "6개 속성 경로석과 환영 서판 세 장을 준비한다.",
+        "보스에게 이동하는 경로의 환영 보상 목표를 가능한 한 진행한다.",
+        "지도 보스를 처치한 다음 환영 인카운터를 종료한다.",
+        "복제된 영토 파편 등 보상을 회수하고 다음 지도로 이동한다."
+      ],
+      "executionEvidence": [
+        {
+          "videoId": "2IvZ4D9b5bs",
+          "startSeconds": 257,
+          "url": "https://www.youtube.com/watch?v=2IvZ4D9b5bs&t=257s"
+        }
+      ],
+      "constraints": [
+        {
+          "text": "환영은 반드시 지도 보스를 처치한 뒤 종료한다.",
+          "evidence": null
+        }
+      ],
+      "reportedResults": {
+        "text": "시간당 수익과 순이익은 미확인이다.",
+        "netProfitPerHour": null,
+        "evidence": []
+      },
+      "unresolved": [
+        "현재 리그 실전 재현과 시간당 순이익 미검증",
+        "전체 아틀라스 연결 경로와 대가의 전체 능력 구성 미확인",
+        "지도 1회당 투자 금액 미확인"
+      ],
+      "notes": "",
+      "stopConditions": [
+        "반복해서 사망하거나 소모품 비용을 회수하기 어렵다면 투입을 줄이고 세팅을 조정한다."
+      ],
+      "creatorGuide": {
+        "url": "https://mobalytics.gg/poe-2/atlas-trees/fubgun-atlas-tree-strats",
+        "section": "Deli Rush",
+        "checkedAt": "2026-09-22",
+        "note": "0.5.5 영상에 연결된 세부 세팅 가이드. 문서의 갱신일 표시는 2026-09-10이며, 해당 구성의 구매 조건을 참고할 수 있다."
+      },
+      "evidenceReview": {
+        "checkedAt": "2026-09-22",
+        "scope": "전체 자막 · 제작자 문서 대조",
+        "note": "0.5.5 영상과 연결 가이드 기준. 보조 영상은 0.5 자료이며 세팅에 차이가 있다. 전체 아틀라스 경로와 실전 수익은 미검증이다."
+      }
+    },
+    {
+      "id": "lineage-boss-rush",
+      "name": "혈통 보조 보스 파밍",
+      "content": [],
+      "sourceVideoId": "2IvZ4D9b5bs",
+      "goals": [
+        "혈통 보조"
+      ],
+      "investment": "unknown",
+      "budget": {
+        "amount": null,
+        "currency": "엑잘티드 오브"
+      },
+      "party": "미확인",
+      "patch": "0.5.5",
+      "summary": "숲 숙련을 활용해 보스의 혈통 보조 보상을 노린다. 숲 전환이 필요하면 통달한 영토의 숲 변형을 사용한다. 전체 서판 조합은 아직 미확인이다.",
+      "tablets": {
+        "usage": "use",
+        "items": [
+          {
+            "name": "통달한 영토",
+            "count": 1,
+            "remainingUses": null,
+            "status": "required",
+            "options": []
+          }
+        ],
+        "notes": [
+          "숲이 아닌 목표 지도를 바꿀 때 통달한 영토의 숲 변형 1개를 사용한다. 같은 이름의 물·산·풀·늪·사막 변형을 구입하지 않도록 실제 속성을 확인한다. 현재 자동 검색은 고유 이름까지만 설정한다.",
+          "서판 목록은 환경 전환용 서판만 포함한다. 무작위 지도 속성 1~2개 추가 서판 3개를 포함한 첫 진입의 전체 조합과 필요한 슬롯은 미확인이다. 완성된 구매 목록으로 사용하지 않는다.",
+          "낙원의 환영으로 두 번째 진입에도 숲 상태를 유지하고 무작위 지도 속성 2개 추가 서판 3개로 바꾸는 방식이다. 첫 진입의 정확한 조합은 미확인이며, 두 고유 서판과 일반 서판 3개를 동시에 넣는 구성이 아니다."
+        ],
+        "evidence": []
+      },
+      "waystone": {
+        "tier": null,
+        "affixCount": null,
+        "corrupted": null,
+        "options": [],
+        "notes": [
+          "제작자 가이드는 라키아타의 흐름·가루칸의 투지를 노릴 때 높은 경로석 출현 확률을 권장한다. 필요한 최소 수치와 현재 패치의 드롭 효과는 미확인이다."
+        ],
+        "evidence": [
+          {
+            "videoId": "UfJflMmJ1BM",
+            "startSeconds": 441,
+            "url": "https://www.youtube.com/watch?v=UfJflMmJ1BM&t=441s"
+          }
+        ]
+      },
+      "map": {
+        "regions": [],
+        "biomes": [
+          "숲"
+        ],
+        "conditions": [
+          "숲 숙련의 적용을 받는 75레벨 이상 숲 지역",
+          "목표 혈통 보조의 실제 드롭 보스와 진입 조건을 PoEDB 한국어에서 확인"
+        ],
+        "optional": [],
+        "evidence": []
+      },
+      "atlas": {
+        "nodes": [
+          {
+            "name": "숲 숙련",
+            "choice": "혈통 보조 발견 확률 50% 증가",
+            "basis": "creator_guide",
+            "poedbUrl": "https://poe2db.tw/kr/Forest_Mastery"
+          }
+        ],
+        "fullTreeVerified": false,
+        "evidence": [],
+        "otherPriorities": [
+          "경로석과 서판 속성의 효과를 우선한다. 이를 위한 개별 노드와 전체 연결 경로는 미확인이다."
+        ]
+      },
+      "masters": {
+        "choices": [
+          {
+            "name": "자도",
+            "role": "목표 보스로 전환할 때 사용할 수 있는 ronarray의 0.5 대안이다. Fubgun 세팅의 전체 대가 조합은 미확인이다.",
+            "nodes": [
+              {
+                "name": "전해지지 않은 역사",
+                "choice": null,
+                "basis": "effect_matched",
+                "poedbUrl": "https://poe2db.tw/kr/Masters_of_the_Atlas"
+              }
+            ]
+          }
+        ],
+        "fullSetupVerified": false,
+        "evidence": [
+          {
+            "videoId": "UfJflMmJ1BM",
+            "startSeconds": 389,
+            "url": "https://www.youtube.com/watch?v=UfJflMmJ1BM&t=389s"
+          }
+        ]
+      },
+      "supplies": [
+        "목표 보스에 진입할 수 있는 지도와 캐릭터",
+        "무작위 지도 속성 추가 조건의 서판; 종류·첫 진입 조합은 미확인"
+      ],
+      "steps": [
+        "라키아타의 흐름·가루칸의 투지 등 목표 혈통 보조를 정하고 해당 드롭 보스의 진입 조건을 확인한다.",
+        "숲 숙련에서 혈통 보조 발견 확률 50% 증가를 선택한다.",
+        "목표 지도가 숲인지 확인하고 필요하면 통달한 영토의 숲 변형을 사용한다. 첫 회·재진입 서판 조합과 슬롯을 확인한 후 추가 지도 속성을 선택한다.",
+        "목표 보스를 처치하고 혈통 보조 획득 여부를 기록한다."
+      ],
+      "executionEvidence": [
+        {
+          "videoId": "2IvZ4D9b5bs",
+          "startSeconds": 257,
+          "url": "https://www.youtube.com/watch?v=2IvZ4D9b5bs&t=257s"
+        },
+        {
+          "videoId": "UfJflMmJ1BM",
+          "startSeconds": 620,
+          "url": "https://www.youtube.com/watch?v=UfJflMmJ1BM&t=620s"
+        }
+      ],
+      "constraints": [
+        {
+          "text": "첫 진입과 반복 진입의 전체 서판 조합은 미확인이다. 자연적으로 숲인 지도에서도 숲 숙련의 지역 레벨·선행 조건을 충족해야 한다.",
+          "evidence": null
+        }
+      ],
+      "reportedResults": {
+        "text": "시간당 수익과 순이익은 미확인이다.",
+        "netProfitPerHour": null,
+        "evidence": []
+      },
+      "unresolved": [
+        "현재 리그 실전 재현과 시간당 순이익 미검증",
+        "전체 아틀라스 연결 경로와 대가의 전체 능력 구성 미확인",
+        "지도 1회당 투자 금액 미확인",
+        "첫 회와 반복 진입의 서판 조합 및 전체 개수",
+        "제작자가 언급한 경로석 출현 확률과 목표 젬 드롭 확률의 현재 상관관계"
+      ],
+      "notes": "",
+      "stopConditions": [
+        "숲 전환용 서판과 목표 보스의 실제 진입 조건을 확인하기 전에는 해당 조합을 구매하지 않는다."
+      ],
+      "creatorGuide": {
+        "url": "https://mobalytics.gg/poe-2/atlas-trees/fubgun-atlas-tree-strats",
+        "section": "Lineage Gems",
+        "checkedAt": "2026-09-22",
+        "note": "0.5.5 영상에 연결된 세부 세팅 가이드. 문서의 갱신일 표시는 2026-09-10이며, 해당 구성의 구매 조건을 참고할 수 있다."
+      },
+      "evidenceReview": {
+        "checkedAt": "2026-09-22",
+        "scope": "전체 자막 · 제작자 문서 대조",
+        "note": "0.5.5 영상과 연결 가이드 기준. 보조 영상은 0.5 자료이며 세팅에 차이가 있다. 전체 아틀라스 경로와 실전 수익은 미검증이다."
+      },
+      "supportingVideoIds": [
+        "UfJflMmJ1BM"
+      ]
+    }
+  ]
+}

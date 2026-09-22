@@ -11,3 +11,4 @@ test-results/
 Thumbs.db
 local-data/
 backups/
+*.personal.json

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="한국어 PoE2 파밍법을 조건별로 찾고, 준비물을 비교하고, 나만의 세팅을 보관하세요.">
+  <title>파밍 노트 · PoE2</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 이동</a>
+  <header class="topbar">
+    <a class="brand" href="./" data-page="home"><span class="brand-mark" aria-hidden="true">✳</span> 파밍 노트 <span class="edition">POE 2</span></a>
+    <nav class="top-nav" aria-label="주 메뉴"><a href="./" data-page="home">홈</a><a href="?view=library" data-page="library">파밍 라이브러리</a></nav>
+    <div class="toolbar"><button id="export">JSON 내보내기 ↗</button><button id="import">가져오기</button></div>
+  </header>
+  <div id="storage-warning" class="notice error" hidden></div>
+  <div class="shell">
+    <aside class="sidebar" aria-label="파밍법 목록">
+      <button type="button" data-action="toggle-filters" class="mobile-filters" aria-expanded="false">검색·필터 열기</button><button type="button" data-action="toggle-sidebar" class="switcher-close">파밍법 목록 닫기</button><div class="sidebar-heading"><span class="eyebrow">MY FIELD GUIDE</span><h1>파밍 라이브러리</h1><p>준비하고, 탐험하고, 기록하기.</p></div>
+      <div id="filter-controls"><label class="search-label" for="search">파밍법 검색</label><input id="search" type="search" placeholder="이름, 목적, 서판으로 찾기">
+      <div class="scope" role="group" aria-label="목록 범위"><button data-scope="all" aria-pressed="true">전체</button><button data-scope="base" aria-pressed="false">기본 자료</button><button data-scope="personal" aria-pressed="false">내 데이터</button></div>
+      <details class="filter-panel"><summary>조건으로 좁히기</summary><div id="filters" class="filter-grid"></div></details>
+      </div><div id="list" aria-live="polite"><p>자료를 불러오는 중…</p></div>
+      <button id="new" class="add-method">＋ 새 파밍법</button>
+      <div class="local-note"><span class="local-dot"></span><strong>이 브라우저에 보관</strong><p>편집 후 저장을 눌러 보관하세요. 기기 간 동기화는 지원하지 않으니 JSON으로 백업하세요.</p></div>
+      <p class="scope-note">비교에 2~3개를 담아 준비 조건을 확인하세요.</p>
+    </aside>
+    <main id="main" tabindex="-1"><div id="content"><p class="loading">파밍 자료를 준비하고 있습니다.</p></div></main>
+  </div>
+  <section id="compare-tray" class="compare-tray" aria-label="비교 선택 목록" hidden></section>
+  <dialog id="preview-dialog" class="preview-dialog" aria-label="세팅 미리보기"><div class="dialog-heading"><h2>세팅 미리보기</h2><button data-close autofocus>편집으로 돌아가기</button></div><div id="preview-body"></div></dialog><div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="delete-dialog" aria-labelledby="delete-title">
+    <div class="dialog-heading"><h2 id="delete-title">개인 파밍법 삭제</h2><button data-close aria-label="삭제 창 닫기">✕</button></div>
+    <p><strong id="delete-name"></strong>을 삭제하시겠습니까?</p>
+    <p>이 브라우저의 개인 기록과 편집 내용을 삭제합니다. 기본 자료는 유지됩니다. 복원하려면 미리 JSON으로 내보내세요.</p>
+    <p id="delete-error" role="alert" hidden></p>
+    <div class="dialog-actions"><button data-close autofocus>취소</button><button id="confirm-delete" class="danger">삭제</button></div>
+  </dialog>
+  <dialog id="trade-dialog" aria-labelledby="trade-title">
+    <div class="dialog-heading"><h2 id="trade-title">거래소 검색</h2><button data-close aria-label="거래소 검색 창 닫기" autofocus>✕</button></div>
+    <div id="trade-body"></div>
+  </dialog>
+  <dialog id="share-dialog" aria-labelledby="share-title">
+    <div class="dialog-heading"><h2 id="share-title">기본 자료 주소 공유</h2><button data-close aria-label="공유 창 닫기">✕</button></div>
+    <p id="share-note"></p><p id="share-status" role="status"></p>
+    <label for="share-url">공유 주소</label><input id="share-url" type="text" readonly>
+    <div class="dialog-actions"><button data-close>닫기</button></div>
+  </dialog>
+  <dialog id="import-dialog" aria-labelledby="import-title">
+    <div class="dialog-heading"><h2 id="import-title">JSON 백업 복원</h2><button data-close aria-label="복원 창 닫기">✕</button></div>
+    <p>파일을 먼저 검증합니다. 기존 개인 자료는 유지하며, 충돌하는 항목은 별도 복사본으로 복원합니다.</p>
+    <label for="backup-file">백업 파일 선택 (최대 2 MB)</label><input id="backup-file" type="file" accept=".json,application/json">
+    <div id="import-result" role="status"></div>
+    <div class="dialog-actions"><button data-close>취소</button><button id="confirm-import" class="primary" disabled>검증한 자료 복원</button></div>
+  </dialog>
+  <noscript>이 앱은 JavaScript를 사용합니다. 브라우저 설정에서 JavaScript를 허용해주세요.</noscript>
+</body>
+</html>

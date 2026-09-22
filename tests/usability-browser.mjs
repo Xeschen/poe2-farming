@@ -1,0 +1,112 @@
+import {createRequire} from 'node:module';
+import {readFile,mkdir} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const require=createRequire(import.meta.url), {chromium}=require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const browser=await chromium.launch({headless:true,...(process.env.BROWSER_PATH?{executablePath:process.env.BROWSER_PATH}:{})});
+const root=process.env.APP_URL || 'http://127.0.0.1:4173/';
+const seed=JSON.parse(await readFile('data/library.ko.json','utf8')), key='poe2-farming.personal.v1';
+await mkdir('test-results',{recursive:true});
+const errors=[];
+try {
+ for(const width of [1265,960,390,320]) {
+  const context=await browser.newContext({viewport:{width,height:width<700?844:720},isMobile:width<700,hasTouch:width<700});
+  const page=await context.newPage(); page.setDefaultTimeout(8000); page.on('pageerror',e=>errors.push(e.message));
+  await page.goto(new URL('?method=abyss-currency',root).href);
+  await page.getByRole('heading',{name:'심연 화폐 파밍',exact:true}).waitFor();
+  assert.equal(await page.locator('.sidebar').isVisible(),false);
+  assert.ok((await page.locator('.detail-hero h2').boundingBox()).y < 350);
+  if(width===1265) assert.ok((await page.locator('#tablets .tablet-heading').first().boundingBox()).y<720,'first tablet setup should be above fold');
+  if(width===1265) {
+    const contrasts=await page.evaluate(()=>{
+      const rgb=s=>s.match(/[\d.]+/g).map(Number), lum=c=>c.slice(0,3).map(n=>{n/=255;return n<=.04045?n/12.92:((n+.055)/1.055)**2.4;}).reduce((a,n,i)=>a+n*[.2126,.7152,.0722][i],0);
+      return ['.notice','.setup-help','.detail-toc a','.priority.required'].map(selector=>{
+        const el=document.querySelector(selector);let ancestor=el,bg=[255,255,255];
+        while(ancestor){const color=rgb(getComputedStyle(ancestor).backgroundColor);if(color.length<4||color[3]===1){bg=color;break;}ancestor=ancestor.parentElement;}
+        const a=lum(rgb(getComputedStyle(el).color)),b=lum(bg);return{selector,ratio:(Math.max(a,b)+.05)/(Math.min(a,b)+.05)};
+      });
+    });
+    for(const c of contrasts) assert.ok(c.ratio>=4.5,`${c.selector} contrast ${c.ratio}`);
+  }
+  assert.equal(await page.locator('#content a[href="https://poe2db.tw/kr/Pit"]').count(),0);
+  assert.ok((await page.locator('#tablets').innerText()).includes('속성 제한 없음'));
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.screenshot({path:`test-results/usability-detail-${width}.png`});
+  await page.locator('[data-action="play"]').first().click();
+  assert.equal(await page.locator('.preparation-role:visible').count(),3);
+  await page.locator('[data-prepared="0"]').check();
+  await page.locator('[data-play-step="1"]').click();
+  assert.match(await page.locator('.current-step h3').innerText(),/2 \//);
+  await page.locator('[data-action="leave-play"]').click();
+  await page.locator('[data-action="play"]').first().click();
+  assert.match(await page.locator('#preparation-count').innerText(),/^1 \//);
+  assert.match(await page.locator('.current-step h3').innerText(),/2 \//);
+  await page.locator('[data-action="reset-play"]').click();
+  assert.match(await page.locator('.current-step h3').innerText(),/1 \//);
+  assert.equal(await page.evaluate(k=>localStorage.getItem(k),key),null);
+  await page.locator('[data-action="leave-play"]').click();
+  await page.locator('[data-action="copy"]').click();
+  await page.locator('[data-check-path="method.map.regions"][value="구덩이"]').check();
+  const note=page.getByLabel('나의 메모',{exact:true});
+  await note.fill('첫 준비 메모\n두 번째 진행 메모');
+  await note.evaluate(el=>el.setSelectionRange(0,el.value.length));
+  await page.locator('[data-note-to="steps"]').click();
+  assert.equal(await note.inputValue(),'첫 준비 메모\n두 번째 진행 메모');
+  const steps=seed.strategies.find(m=>m.id==='abyss-currency').steps.length;
+  await page.locator(`[data-move-list="method.steps"][data-index="${steps+1}"][data-direction="-1"]`).press('Enter');
+  assert.equal(await page.locator(`input[data-path="method.steps.${steps}"]`).inputValue(),'두 번째 진행 메모');
+  const search=page.getByRole('searchbox',{name:'서판 속성 추가 검색',exact:true}).first();
+  await search.fill('보상');
+  assert.ok(await page.locator('[data-add-modifier="method.tablets.items.0.options"] option[hidden]').count()>0);
+  const before=await page.locator('[data-modifier-path="method.tablets.items.0.options.0"]').inputValue();
+  await search.fill('없는문구');
+  assert.equal(await page.locator('[data-modifier-path="method.tablets.items.0.options.0"]').inputValue(),before);
+  await page.locator('[data-editor-section="preview"]').click();
+  await page.locator('#preview-dialog').waitFor({state:'visible'});
+  assert.equal(await page.locator('#preview-dialog [data-action="copy"]').count(),0);
+  await page.keyboard.press('Escape');
+  assert.equal(await note.inputValue(),'첫 준비 메모\n두 번째 진행 메모');
+  assert.equal(await page.evaluate(k=>localStorage.getItem(k),key),null);
+  await page.locator('[data-editor-section="edit-notes"]').click();
+  await page.screenshot({path:`test-results/usability-editor-${width}.png`});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.locator('[data-action="finish"]').first().click();
+  await page.getByRole('button',{name:'세팅 편집',exact:false}).waitFor();
+  const saved=await page.evaluate(k=>JSON.parse(localStorage.getItem(k)),key);
+  assert.equal(saved.schemaVersion,6); assert.equal(saved.records[0].method.tablets.items[2].optionRequirement,'unrestricted');
+  const original=seed.strategies.find(m=>m.id==='abyss-currency');
+  assert.equal(await page.locator('#content a[href="https://poe2db.tw/kr/Pit"]').count(),1,'structured region references keep their correct link');
+  const term=page.locator('#tablets .term-link').first();
+  if(width<700) await term.tap(); else { await term.focus(); await page.keyboard.press('ArrowDown'); }
+  await page.locator('.term-card').waitFor();
+  if(width<700) assert.equal(await page.locator('.term-card-inline').count(),1);
+  await page.getByRole('button',{name:'용어 설명 닫기'}).click();
+  assert.equal(await term.evaluate(el=>el===document.activeElement),true);
+  assert.deepEqual(saved.records[0].method.tablets.evidence,original.tablets.evidence);
+  assert.equal(saved.records[0].method.notes,'첫 준비 메모\n두 번째 진행 메모');
+  await page.locator('[data-action="edit"]').click(); await note.fill('취소할 메모');
+  await page.locator('[data-action="cancel-edit"]').first().click();
+  assert.deepEqual(await page.evaluate(k=>JSON.parse(localStorage.getItem(k)),key),saved);
+  await page.goto(new URL('?view=library',root).href);
+  await page.locator('.browse-card').first().waitFor();
+  assert.equal(await page.locator('#list').isVisible(),false);
+  await page.screenshot({path:`test-results/usability-library-${width}.png`});
+  if(width<=1000) await page.locator('[data-action="toggle-filters"]').click();
+  await page.locator('#search').fill('심연'); assert.ok(await page.locator('.browse-card').count()>=2);
+  await page.locator('#search').fill('');
+  await page.locator('.browse-card [data-compare]').nth(0).click(); await page.locator('.browse-card [data-compare]').nth(1).click();
+  assert.ok((await page.locator('#compare-tray').boundingBox()).height<90);
+  await page.locator('#compare-tray [data-action="compare"]').click();
+  assert.equal(await page.locator('#compare-tray').isVisible(),false);
+  assert.equal(await page.locator('.sidebar').isVisible(),false);
+  const count=await page.locator('tr[data-row]').count();
+  await page.locator('#comparison-details').check(); assert.ok(await page.locator('tr[data-row]').count()>count);
+  await page.locator('#differences-only').check(); assert.equal(await page.locator('tr[data-row]:not(.different)').count(),0);
+  await page.screenshot({path:`test-results/usability-compare-${width}.png`});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.locator('#workspace-switch').click(); await page.locator('#search').fill('심연');
+  await page.keyboard.press('Escape'); assert.equal(await page.locator('.sidebar').isVisible(),false);
+  await context.close();
+ }
+ assert.deepEqual(errors,[]);
+ console.log('PASS: 1265/960/390/320 layout, explicit option state, contextual links, preparation/progress, notes/reorder/search, modal preview, save/cancel, provenance, summary comparison and navigation');
+} finally {await browser.close();}
