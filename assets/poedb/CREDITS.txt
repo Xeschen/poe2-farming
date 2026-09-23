@@ -1,0 +1,6 @@
+Path of Exile 2 game artwork © Grinding Gear Games.
+Image references and Korean names: PoEDB https://poe2db.tw/kr/
+Local copies preserve the original WebP files; no artwork modifications.
+Source pages, original image URLs, check date and SHA-256 hashes:
+../../src/image-assets.js
+This fan project does not claim ownership of the game artwork or endorsement by GGG or PoEDB.

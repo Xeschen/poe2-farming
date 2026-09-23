@@ -2,22 +2,40 @@ import { groupedTablets, canLinkInProse, progressFor, preparationItems, nextRun 
 import { renderComparisonContent } from './comparison.js';
 import { renderPlay } from './play.js';
 import { clone, copyMethod, blankRecord, envelope, parseBackup, mergeRecords, validateData, createStore, versionOf, priorities, metrics, investments, tabletUsages, MAX_BYTES } from './model.js';
-import { baseKey, facetValues, filterEntries, tabletSummary, reviewLabel, toggleComparison, publicUrl, parseRoute, UNKNOWN, NOT_APPLICABLE } from './catalog.js';
+import { baseKey, facetValues, filterEntries, tabletSummary, toggleComparison, publicUrl, parseRoute, UNKNOWN, NOT_APPLICABLE } from './catalog.js';
 import { renderDetail } from './details.js';
 import { editorData } from './editor-data.js';
 import { editorControls, selectableAtlas } from './editor.js';
 import { investmentText, makeModifier } from './model.js';
 import { installTradeDialog } from './trade-ui.js';
 import { waystoneEffectFor } from './waystones.js';
+import { imageTag } from './visual-setup.js';
 
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 let seed, terms, verification, store, bases = [], records = [], selected = 'base', mode = 'detail', scope = 'all', draft, draftErrors = [], storageBroken = false, storageSaved = true, pendingImport, termCounter = 0;
 let compareIds = [], differencesOnly = false, routeError = '', filters = {}, routeLocation = '';
 let termsByName, termPattern;
-let pendingDelete, sidebarOpen = false, comparisonDetails = false;
+let pendingDelete, comparisonDetails = false;
 const progress = new Map();
 let sectionObserver;
+const detailLayoutKey = 'poe2-farming:detail-layout';
+let detailLayout = 'comfortable';
+try { if (localStorage.getItem(detailLayoutKey) === 'compact') detailLayout = 'compact'; } catch { /* Reading remains available without storage. */ }
+function applyDetailLayout() {
+  if (mode === 'detail') $('#content').dataset.detailLayout = detailLayout;
+  else delete $('#content').dataset.detailLayout;
+  document.querySelectorAll('[data-detail-layout-choice]').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.detailLayoutChoice === detailLayout));
+  });
+}
+function closeDetailToc(returnFocus = false) {
+  const nav = $('#reading-toc');
+  nav?.classList.remove('is-open');
+  $('#reading-tools')?.classList.remove('is-open');
+  $('#reading-toc-toggle')?.setAttribute('aria-expanded', 'false');
+  if (returnFocus) $('#reading-toc-toggle')?.focus({ preventScroll: true });
+}
 const selectQueries = new Map();
 let editBaseline, editNew = false, editReturn;
 let previewReturn, previewSection = 'notes';
@@ -35,10 +53,11 @@ const contextualTerms = new Map();
 const time = seconds => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
 const status = message => { $('#toast').textContent = message; $('#toast').classList.add('active'); clearTimeout(status.timer); status.timer = setTimeout(() => $('#toast').classList.remove('active'), 4500); };
 const ext = (url, text) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(text)} ↗</a>`;
-function term(name, choice = null, context = null) {
+function term(name, choice = null, context = null, visual = null) {
   const t = contextualTerms.get(`${context}:${name}`) || termsByName.get(name);
   if (!t) return esc(name);
   const id = `term-link-${++termCounter}`;
+  if (visual) return `<button type="button" class="term-link visual-node${visual.hideName ? ' icon-only' : ''}" id="${id}" data-term="${t.id}" data-choice="${esc(choice)}" data-note="${esc(visual.note || '')}" aria-haspopup="dialog" aria-expanded="false" aria-label="${esc(t.nameKo)} 상세 보기"><span class="node-art-frame">${imageTag(visual.asset, esc)}</span><span class="${visual.hideName ? 'sr-only' : 'node-caption'}">${esc(t.nameKo)}</span></button>`;
   return `<a class="term-link" id="${id}" href="${esc(t.url)}" target="_blank" rel="noopener noreferrer" data-term="${t.id}" data-choice="${esc(choice)}" aria-haspopup="dialog" title="포커스로 설명 보기 · ↓ 설명 카드로 이동 · Enter로 PoEDB 열기">${esc(t.nameKo)}</a>`;
 }
 function rich(text) {
@@ -63,7 +82,7 @@ function breadcrumb(parts) {
 }
 function navigatePage(page, targetScope = 'all') {
   if (!guard()) return;
-  sidebarOpen = false; mode = page; selected = ''; routeError = ''; scope = targetScope || 'all';
+  mode = page; selected = ''; routeError = ''; scope = targetScope || 'all';
   updateRoute(); render(); $('#main').focus(); window.scrollTo({ top: 0, behavior: 'instant' });
 }
 function tabletSummaryView(method) {
@@ -110,7 +129,7 @@ function beginEdit(record, isNew = false, selection = record.id) {
   // LOCAL_ADMIN_END
   editReturn = { selected, mode }; editNew = isNew;
   draft = clone(record); editBaseline = JSON.stringify(draft); draftErrors = [];
-  sidebarOpen = false; selectQueries.clear(); selected = selection; mode = 'edit'; routeError = ''; render(); focusPageStart();
+  selectQueries.clear(); selected = selection; mode = 'edit'; routeError = ''; render(); focusPageStart();
   if (isNew) { $('#field-method-name').focus({preventScroll:true}); $('#field-method-name').select(); }
 }
 function endEdit(cancel = false) {
@@ -121,12 +140,6 @@ function endEdit(cancel = false) {
   else mode = 'detail';
   draft = null; draftErrors = []; editBaseline = null; editNew = false;
   updateRoute(true); render(); $('#main').focus();
-}
-function renderList() {
-  const all = entries();
-  const filtered = filterEntries(all, { query: $('#search').value, scope, ...filters });
-  $('#list').innerHTML = `<div class="list-count"><span>FARMING METHODS</span><span>${filtered.length} / ${all.length}개</span></div>` + (filtered.map(r => `<div class="library-item"><button class="method-card" data-select="${esc(r.id)}" aria-current="${r.id === selected && mode !== 'compare'}"><span class="card-tag">${r.personal ? 'PERSONAL · 내 데이터' : '기본 자료'}</span><strong>${esc(r.method.name)}</strong><span class="card-description">${esc(r.method.goals.join(' · ') || '목적 미확인')}</span><span class="card-description card-setup">${tabletSummaryView(r.method)}</span><span class="card-bottom"><span>${esc(investmentText(r.method))} · ${esc(r.method.masters?.choices.map(c => c.name).filter((v, i, a) => a.indexOf(v) === i).join(' / ') || '대가 미확인')}</span><span>${esc(r.method.patch || '패치 미확인')}</span></span><span class="card-bottom">${reviewLabel(r)}</span></button><button class="compare-toggle" data-compare="${esc(r.id)}" aria-pressed="${compareIds.includes(r.id)}" aria-label="${esc(r.method.name)} 비교 ${compareIds.includes(r.id) ? '해제' : '선택'}">${compareIds.includes(r.id) ? '✓ 비교 선택됨' : '＋ 비교에 담기'}</button></div>`).join('') || '<p class="empty">일치하는 파밍법이 없습니다.</p><button data-action="reset-filters">검색 조건 초기화</button>');
-  renderTray();
 }
 function renderFilters() {
   const labels = { content: '콘텐츠', goal: '목적', tablet: '서판', master: '대가', patch: '패치', investment: '영상 투자 분류' };
@@ -157,17 +170,12 @@ function render() {
   // LOCAL_ADMIN_START
   if (mode !== 'edit') libraryAdmin?.end();
   // LOCAL_ADMIN_END
-  sectionObserver?.disconnect(); closeTerm(); renderList(); renderFilters();
+  sectionObserver?.disconnect(); closeTerm(); renderTray(); renderFilters();
+  $('#reading-tools')?.remove(); $('#reading-toc-toggle')?.remove();
   document.body.classList.toggle('home-page', mode === 'home' && !routeError);
   document.body.dataset.mode = mode;
-  document.body.classList.toggle('switcher-open', sidebarOpen);
-  $('.sidebar').hidden = mode !== 'library' && !sidebarOpen;
-  $('#main').inert = sidebarOpen; $('.topbar').inert = sidebarOpen; $('#compare-tray').inert = sidebarOpen;
-  if (sidebarOpen) { $('.sidebar').setAttribute('role','dialog'); $('.sidebar').setAttribute('aria-modal','true'); }
-  else { $('.sidebar').removeAttribute('role'); $('.sidebar').removeAttribute('aria-modal'); }
-  $('#list').hidden = mode === 'library';
-  $('#workspace-switch')?.remove();
-  if (['detail','compare','play'].includes(mode)) $('#main').insertAdjacentHTML('afterbegin', '<button id="workspace-switch" data-action="toggle-sidebar" aria-expanded="' + sidebarOpen + '">파밍법 바꾸기</button>');
+  applyDetailLayout();
+  $('.sidebar').hidden = mode !== 'library';
   document.querySelectorAll('[data-scope]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.scope === scope)));
   document.querySelectorAll('.top-nav a').forEach(a => { if ((mode === 'home') === (a.dataset.page === 'home')) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
   if (mode === 'edit') { renderEditor(); return; }
@@ -180,10 +188,17 @@ function render() {
   if (!r) { $('#content').innerHTML = '<h2>개인 자료를 찾을 수 없습니다.</h2><p>해당 자료를 JSON으로 가져오거나 목록에서 다시 선택하세요.</p>'; return; }
   document.title = `${r.method.name} · 파밍 노트`;
   $('#content').innerHTML = detail(r.method, r.sources, !!r.personal);
+  applyDetailLayout();
   // LOCAL_ADMIN_START
   libraryAdmin?.decorateDetail();
   // LOCAL_ADMIN_END
-  $('.detail-layout').prepend($('.detail-toc'));
+  const readingToc = $('.detail-toc');
+  readingToc.id = 'reading-toc';
+  readingToc.insertAdjacentHTML('afterbegin', '<button type="button" class="reading-toc-close" data-action="close-toc" aria-label="목차 닫기">✕</button>');
+  const readingTools = document.createElement('div'); readingTools.id = 'reading-tools';
+  readingTools.append(readingToc.querySelector('.detail-view-controls'), readingToc);
+  $('#main').append(readingTools);
+  $('#main').insertAdjacentHTML('beforeend', '<button type="button" id="reading-toc-toggle" aria-controls="reading-toc" aria-expanded="false" data-action="toggle-toc"><span aria-hidden="true">☷</span> 목차</button>');
   observeSections();
 }
 function renderComparison() {
@@ -502,6 +517,7 @@ document.addEventListener('click', event => {
   const sectionLink = event.target.closest('[data-editor-section], [data-detail-section]');
   if (sectionLink) {
     event.preventDefault();
+    closeDetailToc();
     if (sectionLink.dataset.editorSection === 'preview') { openPreview(); return; }
     const section = document.getElementById(sectionLink.dataset.editorSection || sectionLink.dataset.detailSection);
     if (section?.matches('.detail-panel')) section.open = true;
@@ -515,26 +531,38 @@ document.addEventListener('click', event => {
   const link = event.target.closest('a[data-page], a[data-select]');
   if (link && (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0)) return;
   const b = event.target.closest('button, a[data-page], a[data-select]'); if (!b) return;
+  if (b.dataset.detailLayoutChoice) {
+    if (!['comfortable', 'compact'].includes(b.dataset.detailLayoutChoice)) return;
+    detailLayout = b.dataset.detailLayoutChoice;
+    closeTerm(); applyDetailLayout();
+    try { localStorage.setItem(detailLayoutKey, detailLayout); }
+    catch { status('현재 화면에 적용했습니다. 브라우저 저장이 제한되어 다음 방문에는 기억되지 않습니다.'); }
+    return;
+  }
   if (link) event.preventDefault();
   if (b.dataset.page) { navigatePage(b.dataset.page, b.dataset.targetScope); return; }
-  if (b.dataset.select) { if (!guard()) return; sidebarOpen = false; selected = b.dataset.select; mode = 'detail'; routeError = ''; updateRoute(); render(); focusPageStart(); }
+  if (b.dataset.select) { if (!guard()) return; selected = b.dataset.select; mode = 'detail'; routeError = ''; updateRoute(); render(); focusPageStart(); }
   if (b.dataset.scope) { scope = b.dataset.scope; document.querySelectorAll('[data-scope]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); refreshResults(); }
   if (b.hasAttribute('data-close')) b.closest('dialog').close();
   if (b.dataset.compare) {
     if (!guard()) return;
-    const fromList = !!b.closest('#list'), fromTray = !!b.closest('#compare-tray');
-    const toggledId = b.dataset.compare;
+    const fromTray = !!b.closest('#compare-tray');
     try { compareIds = toggleComparison(compareIds, b.dataset.compare); } catch (error) { status(error.message); return; }
     if (mode === 'compare') { updateRoute(true); render(); }
-    else { renderList(); document.querySelectorAll('#content [data-compare]').forEach(button => { const checked = compareIds.includes(button.dataset.compare); button.setAttribute('aria-pressed', String(checked)); button.textContent = checked ? '✓ 비교 선택됨' : '＋ 비교에 담기'; }); }
-    if (fromList) document.querySelector(`#list [data-compare="${CSS.escape(toggledId)}"]`)?.focus({ preventScroll: true });
-    else if (fromTray) ($('#compare-tray .compare-chips button') || $('#main')).focus({ preventScroll: true });
+    else { renderTray(); document.querySelectorAll('#content [data-compare]').forEach(button => { const checked = compareIds.includes(button.dataset.compare); button.setAttribute('aria-pressed', String(checked)); button.textContent = checked ? '✓ 비교 선택됨' : '＋ 비교에 담기'; }); }
+    if (fromTray) ($('#compare-tray .compare-chips button') || $('#main')).focus({ preventScroll: true });
     else if (mode === 'compare') $('#main').focus({ preventScroll: true });
   }
   const a = b.dataset.action;
-  if (a === 'toggle-sidebar') { sidebarOpen=!sidebarOpen; render(); (sidebarOpen ? $('#search') : $('#workspace-switch'))?.focus({preventScroll:true}); return; }
+  if (a === 'toggle-toc') {
+    const nav = $('#reading-toc'), open = !nav.classList.contains('is-open');
+    closeTerm(); nav.classList.toggle('is-open', open); $('#reading-tools').classList.toggle('is-open', open); b.setAttribute('aria-expanded', String(open));
+    if (open) nav.querySelector('[aria-current], a')?.focus({ preventScroll: true });
+    return;
+  }
+  if (a === 'close-toc') { closeDetailToc(true); return; }
   if (a === 'toggle-filters') { const open=document.body.classList.toggle('filters-open'); b.setAttribute('aria-expanded',String(open)); b.textContent=open ? '검색·필터 접기' : '검색·필터 열기'; return; }
-  if (a === 'play' || a === 'leave-play') { mode=a==='play' ? 'play' : 'detail'; sidebarOpen=false; updateRoute(); render(); $('#main').focus(); window.scrollTo({top:0,behavior:'instant'}); return; }
+  if (a === 'play' || a === 'leave-play') { mode=a==='play' ? 'play' : 'detail'; updateRoute(); render(); $('#main').focus(); window.scrollTo({top:0,behavior:'instant'}); return; }
   if (a === 'reset-play') { nextRun(progressFor(progress,selected,getEntry(selected).method)); renderRun(); $('[data-action="reset-play"]').focus({preventScroll:true}); return; }
   if (a === 'delete') {
     const record = getRecord(); if (!record) return;
@@ -603,7 +631,7 @@ document.addEventListener('click', event => {
   }
 });
 function refreshResults() {
-  renderList();
+  renderTray();
   if (mode === 'library') { closeTerm(); renderLibrary(); updateRoute(true); }
 }
 $('#search').addEventListener('input', refreshResults);
@@ -662,7 +690,7 @@ window.addEventListener('popstate', e => {
   if (!e.state && location.pathname + location.search === routeLocation) return;
   if (!guard()) { updateRoute(true); return; }
   restoringPosition = true;
-  sidebarOpen = false; readRoute(e.state); routeLocation = location.pathname + location.search; render();
+  readRoute(e.state); routeLocation = location.pathname + location.search; render();
   $('#main').focus({preventScroll:true});
   window.scrollTo({top:e.state?.scrollY || 0,behavior:'instant'});
   if ($('.comparison-scroll')) $('.comparison-scroll').scrollTop=e.state?.comparisonScroll || 0;
@@ -675,7 +703,7 @@ function closeTerm(returnFocus = false) {
   clearTimeout(hideTimer);
   const previous = activeTerm; activeTerm?.removeAttribute('aria-describedby'); activeTerm?.setAttribute('aria-expanded', 'false');
   card?.remove(); card = null; activeTerm = null;
-  if (returnFocus && previous?.isConnected) { previous.focus(); closeTerm(); }
+  if (returnFocus && previous?.isConnected) { previous.focus({ preventScroll: true }); closeTerm(); }
 }
 function positionTerm() {
   if (!card || !activeTerm || card.classList.contains('term-card-inline')) return;
@@ -689,8 +717,11 @@ function showTerm(anchor) {
   const t = [...terms, ...contextualTerms.values()].find(t => t.id === anchor.dataset.term), chosen = anchor.dataset.choice;
   card = document.createElement('div'); card.className = 'term-card'; card.id = 'term-explanation'; card.role = 'dialog'; card.setAttribute('aria-label', `${t.nameKo} 설명`);
   const checked = t.verification || verification;
-  card.innerHTML = `<button class="close-term" aria-label="용어 설명 닫기">✕</button><small>${esc(t.kind)}</small><h3>${esc(t.nameKo)}</h3><p>${esc(t.description)}</p>${t.choices.length ? `<ul>${t.choices.map(c => `<li class="${chosen === c ? 'chosen' : ''}">${esc(c)}${chosen === c ? ' · 이 세팅의 선택' : ''}</li>`).join('')}</ul>` : ''}${chosen && !t.choices.includes(chosen) ? `<p class="selection">이 세팅의 선택: ${esc(chosen)}</p>` : ''}<small>${checked.status === 'research_name_checked' ? '기존 조사 명칭 확인' : '명칭 확인'} ${esc(checked.checkedAt)} · 페이지 패치 미표기<br>영상 세팅의 현재 유효성은 미검증</small>${ext(t.url, 'PoEDB 한국어에서 확인')}`;
-  const inline = pointerType === 'touch' || matchMedia('(max-width: 700px)').matches;
+  const visual = anchor.classList.contains('visual-node');
+  const choiceList = t.choices.length ? `<ul>${t.choices.map(c => `<li class="${chosen === c ? 'chosen' : ''}"${chosen === c ? ' aria-current="true"' : ''}>${esc(c)}</li>`).join('')}</ul>` : '';
+  card.innerHTML = `<button class="close-term" aria-label="용어 설명 닫기">✕</button><small>${esc(anchor.dataset.note || t.kind)}</small><h3>${esc(t.nameKo)}</h3><p>${esc(t.description)}</p>${visual && choiceList ? `<div class="all-node-choices"><h4>노드의 전체 선택지</h4>${choiceList}</div>` : choiceList}${chosen && !t.choices.includes(chosen) ? `<p class="selection">선택 내용: ${esc(chosen)}</p>` : ''}<small>${checked.status === 'research_name_checked' ? '기존 조사 명칭 확인' : '명칭 확인'} ${esc(checked.checkedAt)} · 페이지 패치 미표기<br>영상 세팅의 현재 유효성은 미검증</small>${ext(t.url, 'PoEDB 한국어에서 확인')}`;
+  if (visual) card.classList.add('visual-term-card');
+  const inline = !visual && (pointerType === 'touch' || matchMedia('(max-width: 700px)').matches);
   if (inline) {
     card.classList.add('term-card-inline');
     const ability = anchor.closest('.master-map-card');
@@ -703,23 +734,21 @@ function showTerm(anchor) {
   card.onpointerenter = () => clearTimeout(hideTimer);
   card.onpointerleave = () => { hideTimer = setTimeout(() => closeTerm(), 220); };
 }
-document.addEventListener('pointerdown', e => { pointerType = e.pointerType; if (!e.target.closest('.term-link,.term-card')) closeTerm(); });
-document.addEventListener('pointerover', e => { const a = e.target.closest('.term-link'); if (a && e.pointerType !== 'touch') showTerm(a); });
-document.addEventListener('pointerout', e => { if (e.target.closest('.term-link')) hideTimer = setTimeout(() => closeTerm(), 220); });
+document.addEventListener('pointerdown', e => { pointerType = e.pointerType; if (!e.target.closest('.term-link,.term-card')) closeTerm(); if (!e.target.closest('#reading-tools,#reading-toc-toggle')) closeDetailToc(); });
+document.addEventListener('pointerover', e => { const a = e.target.closest('.term-link'); if (a && e.pointerType !== 'touch' && matchMedia('(hover: hover)').matches) showTerm(a); });
+document.addEventListener('pointerout', e => { const a = e.target.closest('.term-link'); if (a && !a.contains(e.relatedTarget) && !card?.contains(e.relatedTarget)) hideTimer = setTimeout(() => closeTerm(), 220); });
 document.addEventListener('focusin', e => { const a = e.target.closest('.term-link'); if (a) showTerm(a); else if (!e.target.closest('.term-card')) closeTerm(); });
-document.addEventListener('click', e => { const a = e.target.closest('.term-link'); if (a && (pointerType === 'touch' || matchMedia('(hover: none)').matches) && e.detail !== 0) { e.preventDefault(); showTerm(a); } });
+document.addEventListener('click', e => { const a = e.target.closest('.term-link'); if (a && (a.classList.contains('visual-node') || ((pointerType === 'touch' || matchMedia('(hover: none)').matches) && e.detail !== 0))) { e.preventDefault(); showTerm(a); } });
 document.addEventListener('keydown', e => {
-  if (e.key === 'Tab' && sidebarOpen) {
-    const focusable = [...$('.sidebar').querySelectorAll('button,input,select,a,summary')].filter(el => !el.disabled && el.getClientRects().length);
-    const first = focusable[0], last = focusable.at(-1);
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
-  }
-  if (e.key === 'Escape' && sidebarOpen) { sidebarOpen=false; render(); $('#workspace-switch')?.focus(); }
+  if (e.key === 'Escape' && $('#reading-toc.is-open')) { e.preventDefault(); closeDetailToc(true); return; }
   if (e.key === 'Escape' && card) { e.preventDefault(); closeTerm(true); }
   if (e.key === 'ArrowDown' && e.target.closest('.term-link')) { e.preventDefault(); showTerm(e.target.closest('.term-link')); card.querySelector('button').focus(); }
 });
-window.addEventListener('resize', () => closeTerm());
+window.addEventListener('resize', () => {
+  const outlineFocused = $('#reading-tools')?.contains(document.activeElement);
+  closeTerm(); closeDetailToc(outlineFocused && matchMedia('(max-width: 1000px)').matches);
+});
+new ResizeObserver(() => document.documentElement.style.setProperty('--compare-tray-height', `${$('#compare-tray').getBoundingClientRect().height}px`)).observe($('#compare-tray'));
 window.addEventListener('scroll', () => {
   rememberPosition();
   if (card?.classList.contains('term-card-inline')) return;

@@ -7,7 +7,7 @@ import { publicFiles } from './release-files.mjs';
 
 // A static-only server mounted at the actual GitHub project path.
 const prefix = '/poe2-farming/';
-const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json' };
+const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.webp': 'image/webp' };
 const server = http.createServer(async (req, res) => {
   try {
     const path = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
@@ -20,7 +20,10 @@ const server = http.createServer(async (req, res) => {
 server.listen(0, '127.0.0.1'); await once(server, 'listening');
 await mkdir('test-results', { recursive: true });
 try {
-  for (const suite of ['release-browser', 'catalog-browser', 'editor-save-browser', 'trade-browser', 'migration-browser', 'usability-browser', 'recheck-browser', 'local-admin-browser']) {
+  const suites = ['release-browser', 'visual-setup-browser', 'detail-layout-browser', 'catalog-browser', 'editor-save-browser', 'trade-browser', 'migration-browser', 'usability-browser', 'recheck-browser', 'local-admin-browser'];
+  const selected = process.argv.slice(2);
+  if (selected.some(s => !suites.includes(s))) throw Error('Unknown browser suite');
+  for (const suite of selected.length ? selected : suites) {
     console.log(`Browser check: ${suite}`);
     await new Promise((resolve, reject) => {
       const child = spawn(process.execPath, [`tests/${suite}.mjs`], {

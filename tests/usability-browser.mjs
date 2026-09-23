@@ -19,7 +19,7 @@ try {
   if(width===1265) {
     const contrasts=await page.evaluate(()=>{
       const rgb=s=>s.match(/[\d.]+/g).map(Number), lum=c=>c.slice(0,3).map(n=>{n/=255;return n<=.04045?n/12.92:((n+.055)/1.055)**2.4;}).reduce((a,n,i)=>a+n*[.2126,.7152,.0722][i],0);
-      return ['.notice','.setup-help','.detail-toc a','.priority.required'].map(selector=>{
+      return ['.notice','.icon-help','.detail-toc a','.tablet-heading small'].map(selector=>{
         const el=document.querySelector(selector);let ancestor=el,bg=[255,255,255];
         while(ancestor){const color=rgb(getComputedStyle(ancestor).backgroundColor);if(color.length<4||color[3]===1){bg=color;break;}ancestor=ancestor.parentElement;}
         const a=lum(rgb(getComputedStyle(el).color)),b=lum(bg);return{selector,ratio:(Math.max(a,b)+.05)/(Math.min(a,b)+.05)};
@@ -75,15 +75,20 @@ try {
   assert.equal(saved.schemaVersion,6); assert.equal(saved.records[0].method.tablets.items[2].optionRequirement,'unrestricted');
   const original=seed.strategies.find(m=>m.id==='abyss-currency');
   assert.equal(await page.locator('#content a[href="https://poe2db.tw/kr/Pit"]').count(),1,'structured region references keep their correct link');
-  const term=page.locator('#tablets .term-link').first();
+  const term=page.locator('#setup .atlas-icon-strip .term-link').first();
   if(width<700) await term.tap(); else { await term.focus(); await page.keyboard.press('ArrowDown'); }
   await page.locator('.term-card').waitFor();
-  if(width<700) assert.equal(await page.locator('.term-card-inline').count(),1);
+  if(width<700) assert.equal(await page.locator('.visual-term-card').count(),1);
   await page.getByRole('button',{name:'용어 설명 닫기'}).click();
   assert.equal(await term.evaluate(el=>el===document.activeElement),true);
   assert.deepEqual(saved.records[0].method.tablets.evidence,original.tablets.evidence);
   assert.equal(saved.records[0].method.notes,'첫 준비 메모\n두 번째 진행 메모');
-  await page.locator('[data-action="edit"]').click(); await note.fill('취소할 메모');
+  await page.locator('[data-action="edit"]').click();
+  try { await note.fill('취소할 메모'); } catch (error) {
+    await page.screenshot({path:`test-results/usability-edit-failure-${width}.png`});
+    console.log({width,errors,editorCount:await page.locator('#editor').count(),cardCount:await page.locator('.term-card').count()});
+    throw error;
+  }
   await page.locator('[data-action="cancel-edit"]').first().click();
   assert.deepEqual(await page.evaluate(k=>JSON.parse(localStorage.getItem(k)),key),saved);
   await page.goto(new URL('?view=library',root).href);
@@ -103,8 +108,13 @@ try {
   await page.locator('#differences-only').check(); assert.equal(await page.locator('tr[data-row]:not(.different)').count(),0);
   await page.screenshot({path:`test-results/usability-compare-${width}.png`});
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
-  await page.locator('#workspace-switch').click(); await page.locator('#search').fill('심연');
-  await page.keyboard.press('Escape'); assert.equal(await page.locator('.sidebar').isVisible(),false);
+  assert.equal(await page.locator('#workspace-switch, #list, [data-action="toggle-sidebar"]').count(),0);
+  await page.locator('.top-nav [data-page="library"]').click();
+  if(width<=1000 && !await page.locator('#search').isVisible()) await page.locator('[data-action="toggle-filters"]').click();
+  await page.locator('#search').fill('심연');
+  assert.ok(await page.locator('.browse-card').count()>0);
+  await page.locator('.browse-card [data-select]').first().click();
+  assert.equal(await page.locator('.sidebar').isVisible(),false);
   await context.close();
  }
  assert.deepEqual(errors,[]);

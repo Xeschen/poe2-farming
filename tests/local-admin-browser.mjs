@@ -15,7 +15,7 @@ async function serve(directory, admin) {
   return `http://127.0.0.1:${server.address().port}`;
 }
 try {
-  for (const folder of ['src', 'data']) await cp(folder, join(root, folder), { recursive: true });
+  for (const folder of ['src', 'data', 'assets']) await cp(folder, join(root, folder), { recursive: true });
   // The fixture must never carry real operator changes into its expectations.
   await rm(join(root, 'data/library-overrides.ko.json'), { force: true });
   for (const file of ['index.html', 'styles.css', '.nojekyll']) await copyFile(file, join(root, file));

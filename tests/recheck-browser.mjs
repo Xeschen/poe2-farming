@@ -25,10 +25,12 @@ try {
     assert.equal(await page.locator('#search').inputValue(),'심연');
     await page.waitForFunction(y=>Math.abs(scrollY-y)<4,filteredY);
     await card.click();
+    if(width<=1000) await page.locator('#reading-toc-toggle').click();
     await page.locator('[data-detail-section="sources"]').click();
     assert.ok(await page.evaluate(()=>scrollY)>500);
-    await page.locator('#workspace-switch').click();
-    await page.locator('#list [data-select="base:abyss-rare-equipment"]').click(); await top();
+    await page.goBack(); await page.locator('.browse-card').first().waitFor();
+    assert.equal(await page.locator('#search').inputValue(),'심연');
+    await page.locator('.browse-card [data-select="base:abyss-rare-equipment"]').click(); await top();
     await goto('?compare=abyss-currency&compare=abyss-rare-equipment&compare=delirium-rush');
     await page.locator('.comparison-table').waitFor();
     const rows=page.locator('tr[data-row]');

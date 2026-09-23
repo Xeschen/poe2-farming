@@ -1,16 +1,13 @@
 import { editorData } from './editor-data.js';
+import { imageFor } from './visual-setup.js';
 
-// Use the same verified names and tier grouping as the editor, without editable controls.
-export function renderMasterAbilities(choice, { esc, term, nodeView }) {
-  const available = editorData.masters.filter(n => n.master === choice.name);
-  const selected = new Map(choice.nodes.map(n => [n.name, n]));
-  const card = (ability, node) => `<li class="master-map-card${node ? ' is-selected' : ''}" data-ability-name="${esc(ability.name)}" data-recorded="${!!node}"><span class="master-map-mark" aria-hidden="true">${node ? '✓' : '–'}</span><span class="sr-only">${node ? '선택한 능력' : '선택 기록 없음'}: </span>${node ? nodeView(node, 'master') : `<div class="master-map-name">${term(ability.name, null, 'master')}</div>`}</li>`;
-  const tiers = [1, 2, 3, 4].map(tier => {
-    const options = available.filter(n => n.tier === tier);
-    if (!options.length) return '';
-    const count = options.filter(n => selected.has(n.name)).length;
-    return `<section class="master-map-tier"><h6><span class="master-tier-number" aria-hidden="true">${tier}</span>${tier}단계 능력<span class="master-tier-count">${count ? `${count}개 선택` : '선택 기록 없음'}</span></h6><ul class="master-map-options">${options.map(n => card(n, selected.get(n.name))).join('')}</ul></section>`;
+// Keep the same three choices per tier and four tiers as the editor.
+export function renderMasterAbilities(choice, { esc, term }) {
+  const available = editorData.masters.filter(n => n.master === choice.name).sort((a, b) => a.tier - b.tier);
+  const nodes = available.map(ability => {
+    const selected = choice.nodes.find(n => n.name === ability.name);
+    const note = `${choice.name} · ${ability.tier}단계 · ${selected ? '선택한 능력' : '선택하지 않은 능력'}`;
+    return `<li class="master-map-card${selected ? ' is-selected' : ''}" data-ability-name="${esc(ability.name)}" data-recorded="${!!selected}">${term(ability.name, selected?.choice, 'master', { asset: imageFor('master', ability.name), hideName: true, note })}${selected ? '<span class="ability-selected-mark" aria-label="선택됨">✓</span>' : ''}</li>`;
   }).join('');
-  const unmatched = choice.nodes.filter(n => !available.some(a => a.name === n.name));
-  return `<div class="master-map-summary"><div class="master-capacity"><span class="master-capacity-slots" aria-hidden="true">${Array.from({length: 4}, (_, i) => `<span class="${i < choice.nodes.length ? 'filled' : ''}"></span>`).join('')}</span><strong>선택 능력 ${choice.nodes.length} / 4</strong></div><p class="master-map-legend"><span>✓ 선택</span><span>– 선택 기록 없음</span></p></div><div class="master-selection-map">${tiers}${unmatched.length ? `<section class="master-map-tier"><h6>단계 미확인</h6><ul class="master-map-options">${unmatched.map(n => card(n, n)).join('')}</ul></section>` : ''}${!available.length && !choice.nodes.length ? '<p class="muted">능력 구성 미확인</p>' : ''}</div>`;
+  return `<div class="master-map-summary"><div class="master-capacity"><strong>선택 능력 ${choice.nodes.length} / 4</strong></div></div><ul class="master-icon-strip" aria-label="${esc(choice.name)} 능력 · 단계별 3개, 총 4단계">${nodes}</ul>${!choice.nodes.length ? '<p class="muted">능력 구성 미확인</p>' : ''}`;
 }

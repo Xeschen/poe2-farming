@@ -37,8 +37,8 @@ test('curation is reproducible and preserves source evidence, uncertainty and st
     for (const key of ['sourceVideoId', 'patch', 'party', 'investment', 'reportedResults']) assert.deepEqual(m[key], original[key]);
     assert.equal(m.budget.amount, null);
     assert.equal(m.atlas?.fullTreeVerified, original.atlas?.fullTreeVerified);
-    assert.equal(m.masters?.fullSetupVerified, m.id === 'azmeri-strongbox' ? true : original.masters?.fullSetupVerified);
-    assert.ok(m.evidenceReview.note && m.evidenceReview.checkedAt === review.checkedAt);
+    assert.equal(m.masters?.fullSetupVerified, true);
+    assert.ok(m.evidenceReview.note && m.evidenceReview.checkedAt <= review.checkedAt);
   }
 });
 
@@ -97,7 +97,10 @@ test('caption review covers all ten sources and corrects chapter, count and vari
     assert.ok(audit.segments > 0);
     assert.match(audit.sha256, /^[a-f0-9]{64}$/);
   }
-  for (const m of library.strategies) assert.equal(m.evidenceReview.checkedAt, review.checkedAt);
+  for (const m of library.strategies) {
+    assert.match(m.evidenceReview.checkedAt, /^\d{4}-\d\d-\d\d$/);
+    assert.ok(m.evidenceReview.checkedAt <= review.checkedAt, 'unchanged records retain their actual review date');
+  }
   assert.equal(method('ritual-nameless-cycle').tablets.items[0].count, 2);
   assert.ok(method('abyss-currency').executionEvidence.some(e => e.videoId === '2IvZ4D9b5bs' && e.startSeconds === 351));
   assert.ok(method('abyss-rare-equipment').goals.includes('빛의 징조'));
@@ -111,6 +114,29 @@ test('caption review covers all ten sources and corrects chapter, count and vari
   assert.ok(!strongbox.unresolved.some(s => s.includes('힐다의 완전한 선택')));
   assert.throws(() => curateLibrary(source, additions, {...review, strategies: [{id:'unknown'}]}), /재검토 대상/);
   assert.throws(() => curateLibrary(source, additions, {...review, strategies: [review.strategies[0], review.strategies[0]]}), /재검토 대상/);
+});
+
+test('master source review completes seven partial selections without merging source variants', () => {
+  assert.equal(review.masterAudit.length, 7);
+  assert.equal(new Set(review.masterAudit.map(a => a.strategyId)).size, 7);
+  for (const audit of review.masterAudit) {
+    const m = method(audit.strategyId);
+    assert.equal(m.evidenceReview.checkedAt, audit.checkedAt);
+    assert.equal(m.masters.fullSetupVerified, true);
+    assert.deepEqual(m.masters.choices[0].nodes.map(n => n.name), audit.abilities);
+    assert.equal(new Set(audit.abilities).size, 4);
+    assert.ok(audit.sourceUrl.startsWith('https://'));
+    assert.equal(m.atlas.fullTreeVerified, false, 'complete master selection does not verify the entire atlas');
+  }
+  const hilda = method('cleansed-fracturing');
+  assert.ok(hilda.masters.choices[0].nodes.some(n => n.name === '강력한 사냥감'));
+  assert.ok(!hilda.masters.choices[0].nodes.some(n => n.name === '영혼 포식자들'), 'use final recommendation, not the initial allocation');
+  assert.ok(hilda.masters.evidence.some(e => e.startSeconds === 204 && e.videoId === 'EdOOPRJIoQ4'));
+  const lineage = method('lineage-boss-rush');
+  assert.match(lineage.masters.choices[0].role, /ronarray의 0\.5/);
+  assert.ok(lineage.masters.evidence.some(e => e.videoId === 'UfJflMmJ1BM' && e.startSeconds === 402));
+  assert.equal(review.masterAudit.find(a => a.strategyId === lineage.id).sourcePatch, '0.5');
+  assert.ok(lineage.unresolved.some(s => s.includes('세 개만 지정')));
 });
 
 test('supporting sources and review scope survive backup; missing supporting sources are rejected', () => {
@@ -147,14 +173,17 @@ test('normalized library conditions reach trade queries and comparison without i
   assert.match(rows.find(r => r.id === 'monsterRarity').values[1].join(), /100/);
 });
 
-test('complete master alternatives replace exactly one confirmed ability, never combine all variants', () => {
-  const [base, unusual, expedition] = method('tablet-drop').masters.choices;
-  for (const [alternative, excluded, included] of [[unusual, '기나긴 나날', '전해지지 않은 역사'], [expedition, '예기치 못한 위협', '동방의 지식']]) {
-    assert.equal(alternative.nodes.length, 4);
-    assert.ok(!alternative.nodes.some(n => n.name === excluded));
-    assert.ok(alternative.nodes.some(n => n.name === included));
-    assert.equal(alternative.nodes.filter(n => base.nodes.some(b => b.name === n.name)).length, 3);
-  }
+test('tablet collection shows one base master setup and retains situational replacement instructions', () => {
+  const m = method('tablet-drop');
+  assert.equal(m.masters.choices.length, 1);
+  const [base] = m.masters.choices;
+  assert.deepEqual(base.nodes.map(n => n.name), ['뜻밖의 임무', '예기치 못한 위협', '부분적인 해독', '기나긴 나날']);
+  assert.match(base.role, /이형 지도.*기나긴 나날을 전해지지 않은 역사로 교체/);
+  assert.match(base.role, /일반 탐험.*예기치 못한 위협을 동방의 지식으로 바꿀 수/);
+  assert.match(base.role, /기본 구성을 그대로 사용해도 된다/);
+  assert.ok(m.masters.evidence.some(e => e.startSeconds === 756));
+  assert.ok(m.masters.evidence.some(e => e.startSeconds === 808));
+  assert.ok(!JSON.stringify(m).includes('이상 지역'));
 });
 
 test('old personal copies retain their bytes and provenance while detecting the library update', () => {

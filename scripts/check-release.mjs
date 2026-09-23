@@ -4,6 +4,8 @@ import { resolve, posix } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { publicFiles } from './release-files.mjs';
 import { readLibrary, validateLibrary } from './library-overrides.mjs';
+import { createHash } from 'node:crypto';
+import { imageCatalogue } from '../src/image-assets.js';
 
 async function filesIn(folder, prefix = '') {
   const result = [];
@@ -22,6 +24,12 @@ await validateLibrary('.', library);
 let bytes = 0;
 for (const file of files) {
   bytes += (await lstat(`dist/${file}`)).size;
+  if (file.endsWith('.webp')) {
+    const asset = imageCatalogue.assets.find(a => a.path === file);
+    const image = await readFile(`dist/${file}`);
+    assert.equal(createHash('sha256').update(image).digest('hex'), asset.sha256, `이미지 손상: ${file}`);
+    continue;
+  }
   const content = await readFile(`dist/${file}`, 'utf8');
   assert.doesNotMatch(content, /libraryAdmin|local-library-admin|LOCAL_ADMIN_START|X-Admin-Token|\/__admin\//, `관리 기능 잔류: ${file}`);
   if (file.endsWith('.js')) for (const match of content.matchAll(/(?:from\s*|import\s*\()\s*['"](\.\.?\/[^'"]+)['"]/g)) {

@@ -1,10 +1,12 @@
 // Only these files may be published. Adding a runtime asset requires review here.
+import { imageCatalogue } from '../src/image-assets.js';
 export const publicFiles = [
   '.nojekyll', 'index.html', 'styles.css',
   'data/library.ko.json', 'data/glossary.ko.json',
   ...['app', 'catalog', 'comparison', 'details', 'editor', 'editor-data', 'legacy',
-    'master-view', 'model', 'play', 'trade', 'trade-data', 'trade-ui', 'usability', 'waystones'].map(name => `src/${name}.js`),
-  'src/trade-data-LICENSE.txt'
+    'master-view', 'model', 'play', 'trade', 'trade-data', 'trade-ui', 'usability', 'waystones', 'image-assets', 'visual-setup'].map(name => `src/${name}.js`),
+  'src/trade-data-LICENSE.txt', 'assets/poedb/CREDITS.txt',
+  ...new Set(imageCatalogue.assets.map(a => a.path))
 ];
 
 export function stripLocalAdmin(source) {
